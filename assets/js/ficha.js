@@ -4,8 +4,9 @@
   });
 
   const CONTACTO = {
-    whatsapp: '34600000000',
-    email: 'hola@equiselection.viles.es'
+  whatsapp: '',                              // vacío = no se muestra el botón
+  email: 'hola@equiselection.viles.es'
+};
   };
 
   const ruta = f => String(f || '').replace(/^\//, '');
@@ -42,13 +43,17 @@
     const consulta = encodeURIComponent(
       `Hola, me interesa la ${p.marca ?? ''} ${p.modelo ?? ''} ${p.talla ?? ''} publicada en la web.`);
 
-    const acciones = vendida ? `
-      <a class="boton boton--linea" href="index.html#catalogo">Ver disponibles</a>` : `
-      ${comprar}
-      <a class="boton ${comprar ? 'boton--linea' : 'boton--oscuro'}"
-         href="https://wa.me/${CONTACTO.whatsapp}?text=${consulta}" rel="noopener">Consultar por WhatsApp</a>
-      <a class="boton boton--linea"
+        const botonWhatsapp = CONTACTO.whatsapp
+      ? `<a class="boton ${comprar ? 'boton--linea' : 'boton--oscuro'}"
+            href="https://wa.me/${CONTACTO.whatsapp}?text=${consulta}" rel="noopener">Consultar por WhatsApp</a>`
+      : '';
+
+    const botonEmail = `<a class="boton ${(comprar || botonWhatsapp) ? 'boton--linea' : 'boton--oscuro'}"
          href="mailto:${CONTACTO.email}?subject=${encodeURIComponent((p.marca ?? '') + ' ' + (p.modelo ?? ''))}">Escribir un correo</a>`;
+
+    const acciones = vendida
+      ? `<a class="boton boton--linea" href="index.html#catalogo">Ver disponibles</a>`
+      : `${comprar}${botonWhatsapp}${botonEmail}`;
 
     contenedor.innerHTML = `
       <a class="ficha__volver" href="index.html#catalogo">← Volver al catálogo</a>
