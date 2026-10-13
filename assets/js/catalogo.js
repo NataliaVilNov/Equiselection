@@ -58,13 +58,7 @@
         </div>
       </a>`;
   }
-  function actualizarActivos() {
-    const n = ['f-categoria','f-marca','f-talla','f-estado']
-      .filter(id => el(id).value !== 'todas').length;
-    const sello = el('f-activos');
-    sello.textContent = n;
-    sello.hidden = n === 0;
-  }
+
   function aplicar() {
     const q = el('f-busqueda').value.trim().toLowerCase();
     const cat = el('f-categoria').value;
@@ -72,9 +66,6 @@
     const talla = el('f-talla').value;
     const estado = el('f-estado').value;
     const orden = el('f-orden').value;
-        el('contador').textContent =
-      `${lista.length} ${lista.length === 1 ? 'artículo' : 'artículos'}`;
-    actualizarActivos();
 
     const lista = PRODUCTOS.filter(p => {
       if (cat !== 'todas' && p.categoria !== cat) return false;
@@ -122,10 +113,6 @@
     form.addEventListener('submit', e => e.preventDefault());  // Enter no recarga
     form.addEventListener('input', aplicar);
     form.addEventListener('change', aplicar);
-        el('f-toggle').addEventListener('click', () => {
-      const abierto = form.classList.toggle('filtros--abierto');
-      el('f-toggle').setAttribute('aria-expanded', abierto);
-    });
 
     el('f-reset').addEventListener('click', () => {
       el('f-busqueda').value = '';
