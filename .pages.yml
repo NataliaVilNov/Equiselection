@@ -55,6 +55,8 @@ content:
       - name: precio
         label: Precio (€)
         type: number
+        options:
+          min: 0
         description: Sin símbolo ni puntos. Las vendidas no muestran precio.
 
       - name: novedad
@@ -68,6 +70,7 @@ content:
       - name: fecha
         label: Fecha de publicación
         type: date
+        default: ""
         description: Ordena el catálogo. Déjala vacía en el histórico.
 
       - name: titular
@@ -91,7 +94,7 @@ content:
             label: Valor
             type: string
 
-            - name: fotos
+      - name: fotos
         label: Fotografías
         type: image
         options:
