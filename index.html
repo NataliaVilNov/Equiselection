@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EquiSelection · Monturas de salto de segunda mano seleccionadas</title>
+<meta name="description" content="Selección experta de monturas de salto de segunda mano y material ecuestre revisado. Cada pieza, verificada antes de salir a la venta.">
+<meta property="og:title" content="EquiSelection · Pre-owned jumping saddles">
+<meta property="og:description" content="Selección experta. Confianza real.">
+<meta property="og:image" content="assets/img/logo.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="assets/img/isotipo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor cabecera__fila">
+    <a class="logo" href="index.html">
+      <img src="assets/img/logo.png" alt="EquiSelection">
+    </a>
+    <nav class="nav">
+      <a href="#catalogo">Catálogo</a>
+      <a href="#proceso">Nuestro proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+  <div class="marca-barra" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="contenedor">
+    <p class="hero__kicker">Selección experta</p>
+    <h1 class="hero__titulo">No todas las monturas<br><em>merecen ser seleccionadas</em></h1>
+    <p class="hero__texto">
+      Monturas de salto de segunda mano revisadas una a una: estado del cuero,
+      integridad del arzón, equilibrio y relleno. Solo publicamos lo que
+      montaríamos nosotros.
+    </p>
+    <a class="boton boton--oscuro" href="#catalogo">Ver disponibles</a>
+  </div>
+</section>
+
+<main id="catalogo" class="contenedor seccion">
+  <div class="seccion__encabezado">
+    <h2 class="seccion__titulo">Catálogo</h2>
+    <p class="seccion__contador" id="contador"></p>
+  </div>
+
+  <form class="filtros" id="filtros" autocomplete="off">
+    <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar por marca, modelo o talla…" aria-label="Buscar">
+    <select id="f-categoria" aria-label="Categoría"></select>
+    <select id="f-marca" aria-label="Marca"></select>
+    <select id="f-talla" aria-label="Talla"></select>
+    <select id="f-estado" aria-label="Disponibilidad">
+      <option value="todas">Todas</option>
+      <option value="disponible">Disponibles</option>
+      <option value="reservada">Reservadas</option>
+      <option value="vendida">Vendidas</option>
+    </select>
+    <select id="f-orden" aria-label="Ordenar">
+      <option value="recientes">Más recientes</option>
+      <option value="precio-asc">Precio: menor a mayor</option>
+      <option value="precio-desc">Precio: mayor a menor</option>
+    </select>
+    <button type="button" class="filtros__reset" id="f-reset">Limpiar</button>
+  </form>
+
+  <div class="rejilla" id="rejilla"></div>
+  <p class="vacio" id="vacio" hidden>No hay artículos que coincidan con la búsqueda.</p>
+</main>
+
+<section id="proceso" class="proceso">
+  <div class="contenedor">
+    <h2 class="seccion__titulo seccion__titulo--claro">Revisamos. Cuidamos. Preparamos.</h2>
+    <ol class="proceso__lista">
+      <li><span>01</span><h3>Selección</h3><p>Descartamos todo lo que no cumple nuestros criterios de estado y procedencia.</p></li>
+      <li><span>02</span><h3>Revisión técnica</h3><p>Arzón, costuras, equilibrio, relleno y herrajes, pieza a pieza.</p></li>
+      <li><span>03</span><h3>Preparación</h3><p>Limpieza, nutrición del cuero y reportaje fotográfico honesto.</p></li>
+      <li><span>04</span><h3>Entrega</h3><p>Asesoramiento previo, embalaje cuidado y envío asegurado.</p></li>
+    </ol>
+  </div>
+</section>
+
+<footer id="contacto" class="pie">
+  <div class="contenedor pie__fila">
+    <div>
+      <img class="pie__logo" src="assets/img/logo.png" alt="EquiSelection">
+      <p class="pie__lema">Selección experta. Confianza real.</p>
+    </div>
+    <div class="pie__contacto">
+      <h3>Contacto</h3>
+      <p><a href="mailto:hola@equiselection.viles.es">hola@equiselection.viles.es</a></p>
+      <p><a href="https://wa.me/34600000000">WhatsApp +34 600 00 00 00</a></p>
+      <p><a href="https://instagram.com/equiselection" rel="noopener">Instagram</a></p>
+    </div>
+  </div>
+  <div class="marca-barra" aria-hidden="true">
+    <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <p class="pie__legal">© <span id="anio"></span> EquiSelection · Pre-owned jumping saddles</p>
+</footer>
+
+<script src="assets/js/catalogo.js"></script>
+</body>
+</html>
