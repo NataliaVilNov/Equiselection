@@ -3,13 +3,20 @@
     style: 'currency', currency: 'EUR', maximumFractionDigits: 0
   });
 
+  // Deja whatsapp vacío mientras no tengas la línea: el botón no aparecerá.
   const CONTACTO = {
-  whatsapp: '',                              // vacío = no se muestra el botón
-  email: 'hola@equiselection.viles.es'
-};
+    whatsapp: '',
+    email: 'hola@equiselection.viles.es'
   };
 
   const ruta = f => String(f || '').replace(/^\//, '');
+  const esc = s => String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
   const contenedor = document.getElementById('ficha');
 
   function pintar(p) {
@@ -19,17 +26,17 @@
     const fotos = (p.fotos ?? []).map(ruta).filter(Boolean);
 
     const specs = (p.especificaciones ?? [])
-      .map(s => `<tr><th>${s.etiqueta}</th><td>${s.valor}</td></tr>`).join('');
+      .map(s => `<tr><th>${esc(s.etiqueta)}</th><td>${esc(s.valor)}</td></tr>`).join('');
 
     const principal = fotos[0]
-      ? `<img id="foto-principal" src="${fotos[0]}" alt="${p.marca ?? ''} ${p.modelo ?? ''}">`
+      ? `<img id="foto-principal" src="${esc(fotos[0])}" alt="${esc(p.marca)} ${esc(p.modelo)}">`
       : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`;
 
     const miniaturas = fotos.length > 1 ? `
       <div class="galeria__miniaturas">
         ${fotos.map((f, i) => `
-          <button type="button" data-foto="${f}" aria-current="${i === 0}">
-            <img src="${f}" alt="" loading="lazy">
+          <button type="button" data-foto="${esc(f)}" aria-current="${i === 0}">
+            <img src="${esc(f)}" alt="" loading="lazy">
           </button>`).join('')}
       </div>` : '';
 
@@ -38,12 +45,12 @@
       : 'Disponible · unidad única';
 
     const comprar = (!vendida && p.checkoutUrl)
-      ? `<a class="boton boton--oscuro" href="${p.checkoutUrl}" rel="noopener">Comprar</a>` : '';
+      ? `<a class="boton boton--oscuro" href="${esc(p.checkoutUrl)}" rel="noopener">Comprar</a>` : '';
 
     const consulta = encodeURIComponent(
       `Hola, me interesa la ${p.marca ?? ''} ${p.modelo ?? ''} ${p.talla ?? ''} publicada en la web.`);
 
-        const botonWhatsapp = CONTACTO.whatsapp
+    const botonWhatsapp = CONTACTO.whatsapp
       ? `<a class="boton ${comprar ? 'boton--linea' : 'boton--oscuro'}"
             href="https://wa.me/${CONTACTO.whatsapp}?text=${consulta}" rel="noopener">Consultar por WhatsApp</a>`
       : '';
@@ -63,12 +70,12 @@
           ${miniaturas}
         </div>
         <div>
-          <p class="ficha__categoria">${p.categoria ?? ''}</p>
-          <h1 class="ficha__titulo">${p.marca ?? ''}</h1>
-          <p class="ficha__modelo">${p.modelo ?? ''} ${p.talla ? '· ' + p.talla : ''}</p>
+          <p class="ficha__categoria">${esc(p.categoria)}</p>
+          <h1 class="ficha__titulo">${esc(p.marca)}</h1>
+          <p class="ficha__modelo">${esc(p.modelo)} ${p.talla ? '· ' + esc(p.talla) : ''}</p>
           <p class="ficha__precio">${vendida ? '—' : EUR.format(p.precio || 0)}</p>
           <p class="ficha__disponibilidad">${disponibilidad}</p>
-          <p class="ficha__descripcion">${p.descripcion ?? ''}</p>
+          <p class="ficha__descripcion">${esc(p.descripcion)}</p>
           <table class="tabla-specs"><tbody>${specs}</tbody></table>
           <div class="ficha__acciones">${acciones}</div>
         </div>
@@ -89,12 +96,14 @@
 
     try {
       const res = await fetch('data/productos.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       const datos = await res.json();
       const lista = Array.isArray(datos) ? datos : (datos.productos ?? []);
       const p = lista.find(x => x.id === id);
       if (!p) throw new Error('no encontrado');
       pintar(p);
-    } catch {
+    } catch (e) {
+      console.error('EquiSelection · error en la ficha:', e);
       contenedor.innerHTML =
         '<p class="cargando">Artículo no encontrado. <a href="index.html#catalogo">Volver al catálogo</a></p>';
     }
