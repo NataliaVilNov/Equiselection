@@ -263,10 +263,13 @@ a{color:inherit;text-decoration:none}
   .pie__logo{height:56px}
 }
 
-/* ---- Móviles estrechos ---- */
-@media (max-width:380px){
-  .contenedor{padding:0 16px}
-  .hero__titulo{font-size:1.9rem}
-  .nav{gap:16px;font-size:.64rem}
-  .filtros{grid-template-columns:1fr}
-}
+  /* Filtros plegados: solo el buscador a la vista */
+  .filtros{padding:0;background:none;margin-bottom:26px}
+  .filtros__toggle{display:inline-flex}
+  .filtros__avanzados{display:none}
+  .filtros--abierto .filtros__avanzados{
+    display:grid;grid-template-columns:1fr 1fr;gap:9px;
+    margin-top:12px;padding:14px;background:var(--hueso);border-radius:var(--radio);
+  }
+  .filtros input,.filtros select{width:100%;padding:12px;font-size:.82rem}
+  .filtros__reset{grid-column:1 / -1;margin-left:0;justify-self:start;padding-top:4px}
