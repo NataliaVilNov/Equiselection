@@ -64,12 +64,12 @@
     "descripcion": "Antarès Connexion de 2016. Cercanía al caballo y asiento equilibrado, el estándar de la marca en salto.",
     "especificaciones": [
       {
-        "etiqueta": "Año",
-        "valor": "2016"
-      },
-      {
         "etiqueta": "Talla",
         "valor": "17,5”"
+      },
+      {
+        "etiqueta": "Año",
+        "valor": "2016"
       }
     ],
     "fotos": [
