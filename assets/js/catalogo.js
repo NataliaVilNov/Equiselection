@@ -20,12 +20,14 @@
   }
 
   function tarjeta(p) {
-    const vendida = p.estado === 'vendida';
-    let etiqueta = '';
-    if (vendida) etiqueta = '<span class="etiqueta etiqueta--vendida">Vendida</span>';
-    else if (p.estado === 'reservada') etiqueta = '<span class="etiqueta etiqueta--reservada">Reservada</span>';
-    else if (p.novedad) etiqueta = '<span class="etiqueta etiqueta--nueva">Nueva entrada</span>';
-
+    const foto = p.fotos?.[0];
+// …
+<div class="tarjeta__marco">
+  ${etiqueta}
+  ${foto
+    ? `<img src="${foto}" alt="${p.marca} ${p.modelo}" loading="lazy">`
+    : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`}
+</div>
     return `
       <a class="tarjeta ${vendida ? 'tarjeta--vendida' : ''}" href="montura.html?id=${encodeURIComponent(p.id)}">
         <div class="tarjeta__marco">
@@ -70,7 +72,7 @@
     else if (orden === 'precio-desc') lista.sort((a,b) => peso(a)-peso(b) || b.precio-a.precio);
     else lista.sort((a,b) => peso(a)-peso(b) || String(b.fecha).localeCompare(String(a.fecha)));
 
-    rejilla.innerHTML = lista.map(tarjeta).join('');
+    rejilla.innerHTML = lista.map().join('');
     el('vacio').hidden = lista.length > 0;
     el('contador').textContent =
       `${lista.length} ${lista.length === 1 ? 'artículo' : 'artículos'}`;
