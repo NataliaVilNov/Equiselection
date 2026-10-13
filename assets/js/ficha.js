@@ -46,8 +46,10 @@
       <div class="ficha__grid">
         <div>
           <div class="galeria__principal">
-            <img id="foto-principal" src="${fotos[0] ?? ''}" alt="${p.marca} ${p.modelo}">
-          </div>
+  ${fotos[0]
+    ? `<img id="foto-principal" src="${fotos[0]}" alt="${p.marca} ${p.modelo}">`
+    : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`}
+</div>
           ${miniaturas}
         </div>
         <div>
