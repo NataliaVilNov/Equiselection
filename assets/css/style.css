@@ -112,4 +112,69 @@ a{color:inherit;text-decoration:none}
 .etiqueta--reservada{background:var(--gris);color:var(--negro)}
 
 .tarjeta__cuerpo{padding:18px 2px 0}
-.tarjeta__categoria{font-size:.64rem;
+.tarjeta__categoria{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--texto-suave);margin:0 0 7px}
+.tarjeta__titulo{font-family:var(--titulo);font-size:1.3rem;font-weight:600;margin:0 0 3px;line-height:1.2}
+.tarjeta__modelo{font-size:.9rem;color:var(--texto-suave);margin:0 0 12px}
+.tarjeta__pie{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-top:12px;border-top:1px solid #ECEEEF}
+.tarjeta__precio{font-size:1.05rem;font-weight:500;letter-spacing:.01em}
+.tarjeta__talla{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-suave)}
+.vacio{text-align:center;color:var(--texto-suave);padding:60px 0}
+
+/* ---- marcador sin fotografía ---- */
+.sin-foto{display:flex;align-items:center;justify-content:center;width:100%;height:100%;background:var(--hueso)}
+.sin-foto img{width:38%;height:auto;opacity:.22}
+.tarjeta--vendida .sin-foto img{opacity:.14}
+
+/* ---- proceso ---- */
+.proceso{background:var(--petroleo);color:var(--blanco);padding:78px 0}
+.proceso__lista{list-style:none;padding:0;margin:40px 0 0;display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:34px}
+.proceso__lista span{font-family:var(--titulo);font-size:1.5rem;color:var(--azul);display:block;margin-bottom:10px}
+.proceso__lista h3{font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;margin:0 0 8px}
+.proceso__lista p{margin:0;font-size:.9rem;color:#CFDCDE}
+
+/* ---- ficha de producto ---- */
+.ficha{padding:52px 0 90px}
+.ficha__volver{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--texto-suave);display:inline-block;margin-bottom:28px}
+.ficha__volver:hover{color:var(--negro)}
+.ficha__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
+.galeria__principal{background:var(--hueso);aspect-ratio:1/1;border-radius:var(--radio);overflow:hidden;margin-bottom:12px}
+.galeria__principal img{width:100%;height:100%;object-fit:cover}
+.galeria__principal .sin-foto img{width:38%;height:auto;object-fit:contain}
+.galeria__miniaturas{display:flex;gap:10px;flex-wrap:wrap}
+.galeria__miniaturas button{width:74px;height:74px;padding:0;border:1px solid #E2E5E7;background:var(--hueso);
+  border-radius:3px;overflow:hidden;cursor:pointer}
+.galeria__miniaturas button[aria-current="true"]{border-color:var(--negro)}
+.galeria__miniaturas img{width:100%;height:100%;object-fit:cover}
+
+.ficha__categoria{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--texto-suave);margin:0 0 10px}
+.ficha__titulo{font-family:var(--titulo);font-size:clamp(2rem,4vw,2.9rem);font-weight:600;margin:0 0 4px;line-height:1.1}
+.ficha__modelo{font-family:var(--titulo);font-style:italic;font-size:1.3rem;color:var(--texto-suave);margin:0 0 22px}
+.ficha__precio{font-size:1.7rem;font-weight:500;margin:0 0 6px}
+.ficha__disponibilidad{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;margin:0 0 26px;color:var(--texto-suave)}
+.ficha__descripcion{font-size:1rem;color:var(--texto-suave);margin:0 0 30px}
+.tabla-specs{width:100%;border-collapse:collapse;margin-bottom:32px}
+.tabla-specs tr{border-bottom:1px solid #ECEEEF}
+.tabla-specs th{text-align:left;font-weight:500;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--texto-suave);padding:12px 0;width:42%}
+.tabla-specs td{text-align:right;padding:12px 0;font-size:.95rem}
+.ficha__acciones{display:flex;flex-wrap:wrap;gap:12px}
+.cargando{padding:80px 0;text-align:center;color:var(--texto-suave)}
+
+/* ---- pie ---- */
+.pie{background:var(--hueso)}
+.pie__fila{display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between;padding-top:56px;padding-bottom:46px}
+.pie__logo{height:64px;width:auto;margin-bottom:12px}
+.pie__lema{font-family:var(--titulo);font-style:italic;color:var(--texto-suave);margin:0}
+.pie__contacto h3{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;margin:0 0 12px}
+.pie__contacto p{margin:0 0 6px;font-size:.92rem;color:var(--texto-suave)}
+.pie__contacto a:hover{color:var(--negro)}
+.pie__legal{text-align:center;font-size:.72rem;color:var(--texto-suave);padding:22px 0;margin:0}
+
+@media (max-width:860px){
+  .ficha__grid{grid-template-columns:1fr;gap:38px}
+  .nav{gap:18px;font-size:.7rem}
+  .logo img{height:42px}
+  .hero{padding:58px 0 48px}
+}
