@@ -5,17 +5,27 @@
 
   const el = id => document.getElementById(id);
   const ruta = f => String(f || '').replace(/^\//, '');
+
+  // Escapa texto antes de insertarlo en HTML. Imprescindible: las tallas
+  // llevan comillas (17,5") y romperían los atributos.
+  const esc = s => String(s ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
   const rejilla = el('rejilla');
   let PRODUCTOS = [];
 
   function rellenarSelect(select, valores, etiquetaTodas) {
-    select.innerHTML = `<option value="todas">${etiquetaTodas}</option>` +
-      valores.map(v => `<option value="${v}">${v}</option>`).join('');
+    select.innerHTML = `<option value="todas">${esc(etiquetaTodas)}</option>` +
+      valores.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join('');
   }
 
   function unicos(campo) {
     return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
-      .sort((a, b) => a.localeCompare(b, 'es', { numeric: true }));
+      .sort((a, b) => String(a).localeCompare(String(b), 'es', { numeric: true }));
   }
 
   function tarjeta(p) {
@@ -28,7 +38,7 @@
     else if (p.novedad) etiqueta = '<span class="etiqueta etiqueta--nueva">Nueva entrada</span>';
 
     const imagen = foto
-      ? `<img src="${foto}" alt="${p.marca ?? ''} ${p.modelo ?? ''}" loading="lazy">`
+      ? `<img src="${esc(foto)}" alt="${esc(p.marca)} ${esc(p.modelo)}" loading="lazy">`
       : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`;
 
     return `
@@ -38,12 +48,12 @@
           ${imagen}
         </div>
         <div class="tarjeta__cuerpo">
-          <p class="tarjeta__categoria">${p.categoria ?? ''}</p>
-          <h3 class="tarjeta__titulo">${p.marca ?? ''}</h3>
-          <p class="tarjeta__modelo">${p.modelo ?? ''}</p>
+          <p class="tarjeta__categoria">${esc(p.categoria)}</p>
+          <h3 class="tarjeta__titulo">${esc(p.marca)}</h3>
+          <p class="tarjeta__modelo">${esc(p.modelo)}</p>
           <div class="tarjeta__pie">
             <span class="tarjeta__precio">${vendida ? '—' : EUR.format(p.precio || 0)}</span>
-            <span class="tarjeta__talla">${p.talla ?? ''}</span>
+            <span class="tarjeta__talla">${esc(p.talla)}</span>
           </div>
         </div>
       </a>`;
@@ -86,9 +96,11 @@
 
     try {
       const res = await fetch('data/productos.json', { cache: 'no-store' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
       const datos = await res.json();
       PRODUCTOS = Array.isArray(datos) ? datos : (datos.productos ?? []);
     } catch (e) {
+      console.error('EquiSelection · error al cargar el catálogo:', e);
       rejilla.innerHTML = '<p class="vacio">No se ha podido cargar el catálogo.</p>';
       return;
     }
@@ -97,11 +109,16 @@
     rellenarSelect(el('f-marca'), unicos('marca'), 'Todas las marcas');
     rellenarSelect(el('f-talla'), unicos('talla'), 'Todas las tallas');
 
-    el('filtros').addEventListener('input', aplicar);
-    el('filtros').addEventListener('change', aplicar);
+    const form = el('filtros');
+    form.addEventListener('submit', e => e.preventDefault());  // Enter no recarga
+    form.addEventListener('input', aplicar);
+    form.addEventListener('change', aplicar);
+
     el('f-reset').addEventListener('click', () => {
-      el('filtros').reset();
-      el('f-categoria').value = el('f-marca').value = el('f-talla').value = 'todas';
+      el('f-busqueda').value = '';
+      el('f-categoria').value = 'todas';
+      el('f-marca').value = 'todas';
+      el('f-talla').value = 'todas';
       el('f-estado').value = 'todas';
       el('f-orden').value = 'recientes';
       aplicar();
