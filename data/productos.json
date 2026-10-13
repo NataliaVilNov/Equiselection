@@ -29,7 +29,7 @@
     "talla": "17\"",
     "id": "childeric-17-1997",
     "categoria": "Monturas",
-    "estado": "vendida",
+    "estado": "disponible",
     "precio": 450,
     "novedad": true,
     "destacado": false,
@@ -37,10 +37,6 @@
     "titular": "Talabartería francesa con oficio",
     "descripcion": "Childéric, casa francesa reconocida por su ajuste personalizado y por la longevidad de sus cueros. Unidad veterana, revisada pieza a pieza.",
     "especificaciones": [
-      {
-        "etiqueta": "Año",
-        "valor": "1997"
-      },
       {
         "etiqueta": "Talla",
         "valor": "17\""
