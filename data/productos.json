@@ -260,6 +260,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4906.jpeg"
     ]
   },
   {
@@ -284,6 +287,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4907.jpeg"
     ]
   },
   {
@@ -308,6 +314,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4905.jpeg"
     ]
   },
   {
@@ -332,6 +341,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4904.jpeg"
     ]
   },
   {
@@ -369,7 +381,10 @@
     "destacado": false,
     "fecha": "2026-10-13",
     "titular": "Alta talabartería francesa",
-    "descripcion": "Bruno Delgrange, una de las firmas francesas de mayor prestigio en salto, reconocida por el ajuste y el acabado de sus monturas."
+    "descripcion": "Bruno Delgrange, una de las firmas francesas de mayor prestigio en salto, reconocida por el ajuste y el acabado de sus monturas.",
+    "fotos": [
+      "/assets/img/productos/IMG_4898.jpeg"
+    ]
   },
   {
     "marca": "Antarès",
@@ -393,6 +408,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4902.jpeg"
     ]
   },
   {
@@ -421,6 +439,9 @@
         "etiqueta": "Acabado",
         "valor": "Clásico"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4901.jpeg"
     ]
   },
   {
@@ -477,6 +498,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4897.jpeg"
     ]
   },
   {
@@ -501,6 +525,9 @@
         "etiqueta": "Talla",
         "valor": "18\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4896.jpeg"
     ]
   },
   {
@@ -525,6 +552,9 @@
         "etiqueta": "Faldón",
         "valor": "13"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4895.jpeg"
     ]
   },
   {
