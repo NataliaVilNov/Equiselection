@@ -44,6 +44,9 @@
         "etiqueta": "Talla",
         "valor": "17\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4916.jpeg"
     ]
   },
   {
@@ -63,7 +66,14 @@
       {
         "etiqueta": "Año",
         "valor": "2016"
+      },
+      {
+        "etiqueta": "Talla",
+        "valor": "17,5”"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4917.jpeg"
     ]
   },
   {
@@ -84,6 +94,9 @@
         "etiqueta": "Talla",
         "valor": "17\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4915.jpeg"
     ]
   },
   {
@@ -112,6 +125,9 @@
         "etiqueta": "Acabado",
         "valor": "Doble cuero"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4913.jpeg"
     ]
   },
   {
@@ -136,6 +152,9 @@
         "etiqueta": "Talla",
         "valor": "17\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4912.jpeg"
     ]
   },
   {
@@ -160,6 +179,9 @@
         "etiqueta": "Faldón",
         "valor": "13"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4909.jpeg"
     ]
   },
   {
@@ -184,6 +206,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4910.jpeg"
     ]
   },
   {
@@ -208,6 +233,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4908.jpeg"
     ]
   },
   {
