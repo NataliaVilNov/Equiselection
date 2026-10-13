@@ -91,11 +91,16 @@ content:
             label: Valor
             type: string
 
-      - name: fotos
+            - name: fotos
         label: Fotografías
         type: image
-        list: true
-        description: La primera es la que se ve en el catálogo. Cuadradas, 1200×1200 px.
+        options:
+          multiple:
+            max: 10
+          unique: true
+          extensions: [jpg, jpeg, png, webp]
+          rename: safe
+        description: La primera es la portada del catálogo. Cuadradas, 1200×1200 px.
 
       - name: checkoutUrl
         label: Enlace de pago (Stripe)
