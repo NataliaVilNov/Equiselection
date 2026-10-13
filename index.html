@@ -52,23 +52,31 @@
     <p class="seccion__contador" id="contador"></p>
   </div>
 
-  <form class="filtros" id="filtros" autocomplete="off">
-    <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar por marca, modelo o talla…" aria-label="Buscar">
-    <select id="f-categoria" aria-label="Categoría"></select>
-    <select id="f-marca" aria-label="Marca"></select>
-    <select id="f-talla" aria-label="Talla"></select>
-    <select id="f-estado" aria-label="Disponibilidad">
-      <option value="todas">Todas</option>
-      <option value="disponible">Disponibles</option>
-      <option value="reservada">Reservadas</option>
-      <option value="vendida">Vendidas</option>
-    </select>
-    <select id="f-orden" aria-label="Ordenar">
-      <option value="recientes">Más recientes</option>
-      <option value="precio-asc">Precio: menor a mayor</option>
-      <option value="precio-desc">Precio: mayor a menor</option>
-    </select>
-    <button type="button" class="filtros__reset" id="f-reset">Limpiar</button>
+    <form class="filtros" id="filtros" autocomplete="off">
+    <div class="filtros__fila">
+      <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar marca, modelo o talla…" aria-label="Buscar">
+      <button type="button" class="filtros__toggle" id="f-toggle" aria-expanded="false" aria-controls="f-avanzados">
+        Filtrar<span class="filtros__activos" id="f-activos" hidden></span>
+      </button>
+    </div>
+
+    <div class="filtros__avanzados" id="f-avanzados">
+      <select id="f-categoria" aria-label="Categoría"></select>
+      <select id="f-marca" aria-label="Marca"></select>
+      <select id="f-talla" aria-label="Talla"></select>
+      <select id="f-estado" aria-label="Disponibilidad">
+        <option value="todas">Todas</option>
+        <option value="disponible">Disponibles</option>
+        <option value="reservada">Reservadas</option>
+        <option value="vendida">Vendidas</option>
+      </select>
+      <select id="f-orden" aria-label="Ordenar">
+        <option value="recientes">Más recientes</option>
+        <option value="precio-asc">Precio: menor a mayor</option>
+        <option value="precio-desc">Precio: mayor a menor</option>
+      </select>
+      <button type="button" class="filtros__reset" id="f-reset">Limpiar</button>
+    </div>
   </form>
 
   <div class="rejilla" id="rejilla"></div>
