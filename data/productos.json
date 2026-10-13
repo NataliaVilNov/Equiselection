@@ -1,0 +1,75 @@
+{
+  "productos": [
+    {
+      "id": "antares-connexion-175",
+      "categoria": "Monturas",
+      "marca": "Antarès",
+      "modelo": "Connexion",
+      "talla": "17,5\"",
+      "precio": 3200,
+      "estado": "disponible",
+      "novedad": true,
+      "destacado": true,
+      "fecha": "2026-10-10",
+      "titular": "Equilibrio y contacto, sin concesiones",
+      "descripcion": "Montura de salto seleccionada y revisada en taller. Cuero graso en excelente estado, costuras íntegras y arzón verificado. Lista para su próximo jinete.",
+      "especificaciones": [
+        { "etiqueta": "Año", "valor": "2019" },
+        { "etiqueta": "Cuero", "valor": "Graso completo" },
+        { "etiqueta": "Color", "valor": "Negro" },
+        { "etiqueta": "Arzón", "valor": "Medio" },
+        { "etiqueta": "Faldón", "valor": "2A" },
+        { "etiqueta": "Estado", "valor": "Excelente" }
+      ],
+      "fotos": [
+        "assets/img/productos/antares-connexion-175/01.jpg",
+        "assets/img/productos/antares-connexion-175/02.jpg"
+      ],
+      "checkoutUrl": ""
+    },
+    {
+      "id": "cwd-2gs-17",
+      "categoria": "Monturas",
+      "marca": "CWD",
+      "modelo": "2Gs",
+      "talla": "17\"",
+      "precio": 2450,
+      "estado": "vendida",
+      "novedad": false,
+      "destacado": false,
+      "fecha": "2026-09-22",
+      "titular": "Un clásico de la pista",
+      "descripcion": "Revisada íntegramente. Ya tiene nuevo jinete.",
+      "especificaciones": [
+        { "etiqueta": "Año", "valor": "2018" },
+        { "etiqueta": "Color", "valor": "Marrón" },
+        { "etiqueta": "Arzón", "valor": "Estrecho" },
+        { "etiqueta": "Estado", "valor": "Muy bueno" }
+      ],
+      "fotos": ["assets/img/productos/cwd-2gs-17/01.jpg"],
+      "checkoutUrl": ""
+    },
+    {
+      "id": "casco-samshield-miss-shield",
+      "categoria": "Equipación",
+      "marca": "Samshield",
+      "modelo": "Miss Shield",
+      "talla": "56",
+      "precio": 320,
+      "estado": "disponible",
+      "novedad": true,
+      "destacado": false,
+      "fecha": "2026-10-05",
+      "titular": "Protección certificada, uso mínimo",
+      "descripcion": "Sin golpes ni incidencias. Interior higienizado y certificación vigente.",
+      "especificaciones": [
+        { "etiqueta": "Talla", "valor": "56 cm" },
+        { "etiqueta": "Acabado", "valor": "Alcántara negro" },
+        { "etiqueta": "Norma", "valor": "VG1 01.040 2014-12" },
+        { "etiqueta": "Estado", "valor": "Como nuevo" }
+      ],
+      "fotos": ["assets/img/productos/casco-samshield/01.jpg"],
+      "checkoutUrl": ""
+    }
+  ]
+}
