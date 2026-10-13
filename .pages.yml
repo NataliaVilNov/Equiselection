@@ -1,0 +1,103 @@
+media:
+  input: assets/img/productos
+  output: /assets/img/productos
+
+content:
+  - name: productos
+    label: Catálogo
+    type: file
+    path: data/productos.json
+    format: json
+    list: true
+    fields:
+      - name: marca
+        label: Marca
+        type: string
+        required: true
+
+      - name: modelo
+        label: Modelo
+        type: string
+        description: "Si no se conoce, escribe: Montura de salto"
+
+      - name: talla
+        label: Talla
+        type: string
+        description: 'Monturas: 17,5"  ·  Cascos: M'
+
+      - name: id
+        label: Identificador para la URL
+        type: string
+        required: true
+        pattern: "^[a-z0-9-]+$"
+        description: Solo minúsculas, números y guiones. No lo cambies una vez publicado.
+
+      - name: categoria
+        label: Categoría
+        type: select
+        required: true
+        options:
+          values:
+            - Monturas
+            - Equipación
+            - Accesorios
+
+      - name: estado
+        label: Situación
+        type: select
+        required: true
+        options:
+          values:
+            - disponible
+            - reservada
+            - vendida
+
+      - name: precio
+        label: Precio (€)
+        type: number
+        description: Sin símbolo ni puntos. Las vendidas no muestran precio.
+
+      - name: novedad
+        label: Marcar como "Nueva entrada"
+        type: boolean
+
+      - name: destacado
+        label: Destacada
+        type: boolean
+
+      - name: fecha
+        label: Fecha de publicación
+        type: date
+        description: Ordena el catálogo. Déjala vacía en el histórico.
+
+      - name: titular
+        label: Titular
+        type: string
+        description: Una línea corta, al estilo de las publicaciones de Instagram.
+
+      - name: descripcion
+        label: Descripción
+        type: text
+
+      - name: especificaciones
+        label: Especificaciones
+        type: object
+        list: true
+        fields:
+          - name: etiqueta
+            label: Concepto
+            type: string
+          - name: valor
+            label: Valor
+            type: string
+
+      - name: fotos
+        label: Fotografías
+        type: image
+        list: true
+        description: La primera es la que se ve en el catálogo. Cuadradas, 1200×1200 px.
+
+      - name: checkoutUrl
+        label: Enlace de pago (Stripe)
+        type: string
+        description: Déjalo vacío mientras no vendas online.
