@@ -23,6 +23,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-behavior:smooth}
+body{overflow-x:hidden}
 body{
   margin:0;
   font-family:var(--cuerpo);
@@ -102,8 +103,9 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .filtros input,.filtros select{
   font-family:var(--cuerpo);font-size:.9rem;font-weight:400;color:var(--texto);
-  min-height:44px;padding:11px 14px;border:1px solid var(--linea);
+  min-height:44px;min-width:0;padding:11px 14px;border:1px solid var(--linea);
   border-radius:var(--radio);background:var(--blanco);
+}
 }
 .filtros__buscar{flex:1 1 240px}
 .filtros__reset{
