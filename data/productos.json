@@ -579,6 +579,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4894.jpeg"
     ]
   },
   {
@@ -596,13 +599,12 @@
     "descripcion": "CWD modelo 01, de 2009. Cercanía al caballo y la construcción característica de la marca.",
     "especificaciones": [
       {
-        "etiqueta": "Año",
-        "valor": "2009"
-      },
-      {
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4893.jpeg"
     ]
   },
   {
@@ -631,6 +633,9 @@
         "etiqueta": "Configuración",
         "valor": "3C"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4892.jpeg"
     ]
   },
   {
@@ -655,6 +660,9 @@
         "etiqueta": "Talla",
         "valor": "17,5\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4891.jpeg"
     ]
   },
   {
@@ -679,6 +687,9 @@
         "etiqueta": "Talla",
         "valor": "17\""
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4889.jpeg"
     ]
   },
   {
@@ -707,6 +718,9 @@
         "etiqueta": "Configuración",
         "valor": "3C"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4890.jpeg"
     ]
   },
   {
@@ -735,6 +749,9 @@
         "etiqueta": "Faldón",
         "valor": "5A"
       }
+    ],
+    "fotos": [
+      "/assets/img/productos/IMG_4888.jpeg"
     ]
   },
   {
