@@ -119,10 +119,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .rejilla{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:34px}
 .tarjeta{display:flex;flex-direction:column;background:var(--blanco);transition:transform .25s ease}
 .tarjeta:hover{transform:translateY(-4px)}
-.tarjeta__marco{position:relative;background:var(--hueso);aspect-ratio:1/1;overflow:hidden;border-radius:var(--radio)}
-.tarjeta__marco img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
-.tarjeta:hover .tarjeta__marco img{transform:scale(1.04)}
-.tarjeta--vendida .tarjeta__marco img{filter:grayscale(1);opacity:.5}
+.tarjeta__marco{
+  position:relative;background:var(--hueso);aspect-ratio:1/1;
+  overflow:hidden;border-radius:var(--radio);padding:10px;
+}
+.tarjeta__marco img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
+.tarjeta--vendida 
+.tarjeta__marco img{filter:grayscale(1);opacity:.5}
 
 .etiqueta{
   position:absolute;top:14px;left:14px;z-index:2;padding:6px 11px;border-radius:2px;
@@ -163,9 +166,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .ficha__volver:hover{color:var(--negro)}
 .ficha__grid{display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:start}
-.galeria__principal{background:var(--hueso);aspect-ratio:1/1;border-radius:var(--radio);overflow:hidden;margin-bottom:12px}
-.galeria__principal img{width:100%;height:100%;object-fit:cover}
-.galeria__principal .sin-foto img{width:38%;height:auto;object-fit:contain}
+.galeria__principal{
+  display:flex;align-items:center;justify-content:center;
+  background:var(--hueso);border-radius:var(--radio);overflow:hidden;
+  margin-bottom:12px;padding:16px;
+}
+.galeria__principal img{width:100%;height:auto;max-height:72vh;object-fit:contain}
+.galeria__principal .sin-foto{aspect-ratio:1/1;width:100%}
+
+.galeria__miniaturas button{width:74px;height:74px;padding:5px;border:1px solid var(--linea);
+  background:var(--hueso);border-radius:3px;overflow:hidden;cursor:pointer}
+.galeria__miniaturas img{width:100%;height:100%;object-fit:contain}
 .galeria__miniaturas{display:flex;gap:10px;flex-wrap:wrap}
 .galeria__miniaturas button{width:74px;height:74px;padding:0;border:1px solid var(--linea);background:var(--hueso);
   border-radius:3px;overflow:hidden;cursor:pointer}
@@ -211,6 +222,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 /* ================= MÓVIL ================= */
 @media (max-width:640px){
+    .tarjeta__marco{padding:7px}
   .contenedor{padding:0 24px}
 
   /* Cabecera: deja de ser fija y se reparte en dos líneas */
