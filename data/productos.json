@@ -208,4 +208,415 @@
     "novedad": false,
     "destacado": false,
     "fecha": "",
-    "titular": "Veterana y con
+    "titular": "Veterana y con oficio",
+    "descripcion": "Équipe de 2006. Fabricación italiana, arzón ligero y cueros preparados para una vida larga.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2006" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-175-2014",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Cercanía y respuesta",
+    "descripcion": "CWD de 2014, una de las marcas más presentes en las pistas internacionales por su cercanía al caballo y la precisión del asiento.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2014" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "equipe-175-2014",
+    "categoria": "Monturas",
+    "marca": "Équipe",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Ligereza italiana",
+    "descripcion": "Équipe de 2014. Arzón ligero, buena distribución de presiones y acabados cuidados.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2014" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "butet-175-2022",
+    "categoria": "Monturas",
+    "marca": "Butet",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Butet reciente, poco recorrido",
+    "descripcion": "Butet de 2022. Talabartería artesanal francesa, de las más apreciadas por el tacto de su cuero.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2022" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-2gs-175-2010",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "2Gs",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "El 2Gs, un clásico de la pista",
+    "descripcion": "CWD 2Gs de 2010, uno de los modelos más extendidos de la marca por su equilibrio entre libertad de movimiento y sujeción.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2010" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "gbs-17-2020",
+    "categoria": "Monturas",
+    "marca": "GBS",
+    "modelo": "Montura de salto",
+    "talla": "17\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Reciente y bien conservada",
+    "descripcion": "Montura de salto GBS del año 2020. Seleccionada, revisada y preparada en taller.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2020" },
+      { "etiqueta": "Talla", "valor": "17\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "bruno-delgrange-marti",
+    "categoria": "Monturas",
+    "marca": "Bruno Delgrange",
+    "modelo": "Montura de salto",
+    "talla": "",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Alta talabartería francesa",
+    "descripcion": "Bruno Delgrange, una de las firmas francesas de mayor prestigio en salto, reconocida por el ajuste y el acabado de sus monturas.",
+    "especificaciones": [],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "antares-175-2019",
+    "categoria": "Monturas",
+    "marca": "Antarès",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Antarès reciente",
+    "descripcion": "Antarès de 2019. Equilibrio, contacto directo y la construcción cuidada habitual de la casa.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2019" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-175-2015-clasica",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "Clásica",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Línea clásica, acabado sobrio",
+    "descripcion": "CWD de 2015 en su acabado clásico. Cercanía al caballo y respuesta precisa, con una estética más contenida.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2015" },
+      { "etiqueta": "Talla", "valor": "17,5\"" },
+      { "etiqueta": "Acabado", "valor": "Clásico" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-17-2013-doble-cuero-flexon",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "Montura de salto",
+    "talla": "17\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Conjunto completo, listo para montar",
+    "descripcion": "CWD de 2013 en doble cuero, entregada junto con estribos Flex On. Un conjunto resuelto desde el primer día.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2013" },
+      { "etiqueta": "Talla", "valor": "17\"" },
+      { "etiqueta": "Acabado", "valor": "Doble cuero" },
+      { "etiqueta": "Incluye", "valor": "Estribos Flex On" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "antares-175-2015",
+    "categoria": "Monturas",
+    "marca": "Antarès",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Equilibrio Antarès",
+    "descripcion": "Antarès de 2015. Contacto directo con el caballo y asiento equilibrado, las señas de identidad de la casa.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2015" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "butet-18-2011",
+    "categoria": "Monturas",
+    "marca": "Butet",
+    "modelo": "Montura de salto",
+    "talla": "18\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Talla amplia, difícil de encontrar",
+    "descripcion": "Butet de 2011 en talla 18\", una medida poco habitual en el mercado de segunda mano. Cuero artesanal francés.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2011" },
+      { "etiqueta": "Talla", "valor": "18\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "equipe-17-13-1",
+    "categoria": "Monturas",
+    "marca": "Équipe",
+    "modelo": "Montura de salto",
+    "talla": "17\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Ligereza italiana",
+    "descripcion": "Équipe con faldón 13. Arzón ligero y cueros de larga vida útil.",
+    "especificaciones": [
+      { "etiqueta": "Talla", "valor": "17\"" },
+      { "etiqueta": "Faldón", "valor": "13" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "butet-175-2015",
+    "categoria": "Monturas",
+    "marca": "Butet",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Cuero artesanal francés",
+    "descripcion": "Butet de 2015. Asiento que acompaña al jinete y un cuero que mejora con el uso.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2015" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-01-175-2009",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "01",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Una CWD con historia",
+    "descripcion": "CWD modelo 01, de 2009. Cercanía al caballo y la construcción característica de la marca.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2009" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-175-2010-3c",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "Montura de salto",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Configuración 3C",
+    "descripcion": "CWD de 2010 en configuración 3C. Un acabado buscado por quienes priorizan el agarre.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2010" },
+      { "etiqueta": "Talla", "valor": "17,5\"" },
+      { "etiqueta": "Configuración", "valor": "3C" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-25-175-2013",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "25",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "CWD de la serie 25",
+    "descripcion": "CWD modelo 25, de 2013. Respuesta precisa y la cercanía al caballo que define a la marca.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2013" },
+      { "etiqueta": "Talla", "valor": "17,5\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "equipe-17-2014",
+    "categoria": "Monturas",
+    "marca": "Équipe",
+    "modelo": "Montura de salto",
+    "talla": "17\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Ligereza italiana",
+    "descripcion": "Équipe de 2014 en talla 17\". Arzón ligero y acabados cuidados.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2014" },
+      { "etiqueta": "Talla", "valor": "17\"" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "cwd-se03-175-2017",
+    "categoria": "Monturas",
+    "marca": "CWD",
+    "modelo": "SE03",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "SE03 en configuración 3C",
+    "descripcion": "CWD SE03 de 2017, en configuración 3C. Uno de los modelos más demandados de la gama.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2017" },
+      { "etiqueta": "Talla", "valor": "17,5\"" },
+      { "etiqueta": "Configuración", "valor": "3C" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "bruno-partition-175-2010",
+    "categoria": "Monturas",
+    "marca": "Bruno Delgrange",
+    "modelo": "Partition",
+    "talla": "17,5\"",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Alta talabartería francesa",
+    "descripcion": "Bruno Delgrange Partition, de 2010, con faldón 5A. Una de las firmas de mayor prestigio en salto.",
+    "especificaciones": [
+      { "etiqueta": "Año", "valor": "2010" },
+      { "etiqueta": "Talla", "valor": "17,5\"" },
+      { "etiqueta": "Faldón", "valor": "5A" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  },
+  {
+    "id": "samshield-miss-shield-m",
+    "categoria": "Equipación",
+    "marca": "Samshield",
+    "modelo": "Miss Shield",
+    "talla": "M",
+    "precio": 0,
+    "estado": "vendida",
+    "novedad": false,
+    "destacado": false,
+    "fecha": "",
+    "titular": "Referencia en protección y acabado",
+    "descripcion": "Casco Samshield Miss Shield, talla M. Un estándar del salto por su ajuste y su presencia en pista.",
+    "especificaciones": [
+      { "etiqueta": "Talla", "valor": "M" }
+    ],
+    "fotos": [],
+    "checkoutUrl": ""
+  }
+]
