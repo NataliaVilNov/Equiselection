@@ -171,5 +171,7 @@ a{color:inherit;text-decoration:none}
   .ficha__grid{grid-template-columns:1fr;gap:38px}
   .nav{gap:18px;font-size:.7rem}
   .logo img{height:42px}
+  .sin-foto{display:flex;align-items:center;justify-content:center;height:100%;background:var(--hueso)}
+.sin-foto img{width:38%;height:auto;opacity:.22}
   .hero{padding:58px 0 48px}
 }
