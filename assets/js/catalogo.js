@@ -4,10 +4,9 @@
   });
 
   const el = id => document.getElementById(id);
+  const ruta = f => String(f || '').replace(/^\//, '');
   const rejilla = el('rejilla');
   let PRODUCTOS = [];
-
-  const estadoTexto = { disponible:'', reservada:'Reservada', vendida:'Vendida' };
 
   function rellenarSelect(select, valores, etiquetaTodas) {
     select.innerHTML = `<option value="todas">${etiquetaTodas}</option>` +
@@ -20,26 +19,30 @@
   }
 
   function tarjeta(p) {
-    const foto = p.fotos?.[0];
-// …
-<div class="tarjeta__marco">
-  ${etiqueta}
-  ${foto
-    ? `<img src="${foto}" alt="${p.marca} ${p.modelo}" loading="lazy">`
-    : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`}
-</div>
+    const vendida = p.estado === 'vendida';
+    const foto = ruta(p.fotos?.[0]);
+
+    let etiqueta = '';
+    if (vendida) etiqueta = '<span class="etiqueta etiqueta--vendida">Vendida</span>';
+    else if (p.estado === 'reservada') etiqueta = '<span class="etiqueta etiqueta--reservada">Reservada</span>';
+    else if (p.novedad) etiqueta = '<span class="etiqueta etiqueta--nueva">Nueva entrada</span>';
+
+    const imagen = foto
+      ? `<img src="${foto}" alt="${p.marca ?? ''} ${p.modelo ?? ''}" loading="lazy">`
+      : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`;
+
     return `
       <a class="tarjeta ${vendida ? 'tarjeta--vendida' : ''}" href="montura.html?id=${encodeURIComponent(p.id)}">
         <div class="tarjeta__marco">
           ${etiqueta}
-          <img src="${p.fotos?.[0] ?? ''}" alt="${p.marca} ${p.modelo}" loading="lazy">
+          ${imagen}
         </div>
         <div class="tarjeta__cuerpo">
           <p class="tarjeta__categoria">${p.categoria ?? ''}</p>
           <h3 class="tarjeta__titulo">${p.marca ?? ''}</h3>
           <p class="tarjeta__modelo">${p.modelo ?? ''}</p>
           <div class="tarjeta__pie">
-            <span class="tarjeta__precio">${vendida ? '—' : EUR.format(p.precio)}</span>
+            <span class="tarjeta__precio">${vendida ? '—' : EUR.format(p.precio || 0)}</span>
             <span class="tarjeta__talla">${p.talla ?? ''}</span>
           </div>
         </div>
@@ -54,7 +57,7 @@
     const estado = el('f-estado').value;
     const orden = el('f-orden').value;
 
-    let lista = PRODUCTOS.filter(p => {
+    const lista = PRODUCTOS.filter(p => {
       if (cat !== 'todas' && p.categoria !== cat) return false;
       if (marca !== 'todas' && p.marca !== marca) return false;
       if (talla !== 'todas' && p.talla !== talla) return false;
@@ -68,11 +71,11 @@
     });
 
     const peso = p => (p.estado === 'vendida' ? 1 : 0);
-    if (orden === 'precio-asc') lista.sort((a,b) => peso(a)-peso(b) || a.precio-b.precio);
-    else if (orden === 'precio-desc') lista.sort((a,b) => peso(a)-peso(b) || b.precio-a.precio);
-    else lista.sort((a,b) => peso(a)-peso(b) || String(b.fecha).localeCompare(String(a.fecha)));
+    if (orden === 'precio-asc') lista.sort((a, b) => peso(a) - peso(b) || (a.precio || 0) - (b.precio || 0));
+    else if (orden === 'precio-desc') lista.sort((a, b) => peso(a) - peso(b) || (b.precio || 0) - (a.precio || 0));
+    else lista.sort((a, b) => peso(a) - peso(b) || String(b.fecha || '').localeCompare(String(a.fecha || '')));
 
-    rejilla.innerHTML = lista.map().join('');
+    rejilla.innerHTML = lista.map(tarjeta).join('');
     el('vacio').hidden = lista.length > 0;
     el('contador').textContent =
       `${lista.length} ${lista.length === 1 ? 'artículo' : 'artículos'}`;
@@ -80,9 +83,11 @@
 
   async function iniciar() {
     el('anio').textContent = new Date().getFullYear();
+
     try {
       const res = await fetch('data/productos.json', { cache: 'no-store' });
-      PRODUCTOS = (await res.json()).productos ?? [];
+      const datos = await res.json();
+      PRODUCTOS = Array.isArray(datos) ? datos : (datos.productos ?? []);
     } catch (e) {
       rejilla.innerHTML = '<p class="vacio">No se ha podido cargar el catálogo.</p>';
       return;
