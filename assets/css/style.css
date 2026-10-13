@@ -223,7 +223,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 /* ================= MÓVIL ================= */
 @media (max-width:640px){
     .tarjeta__marco{padding:7px}
-  .contenedor{padding:0 24px}
+    .contenedor{padding:0 32px}
 
   /* Cabecera: deja de ser fija y se reparte en dos líneas */
   .cabecera{position:static}
@@ -303,7 +303,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 /* ================= MÓVILES ESTRECHOS ================= */
 @media (max-width:380px){
-  .contenedor{padding:0 20px}
+    .contenedor{padding:0 26px}
   .hero__titulo{font-size:1.95rem}
   .nav{gap:18px;font-size:.72rem}
   .filtros{grid-template-columns:1fr}
