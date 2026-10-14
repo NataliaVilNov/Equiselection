@@ -23,9 +23,33 @@
       valores.map(v => `<option value="${esc(v)}">${esc(v)}</option>`).join('');
   }
 
-  function unicos(campo) {
-    return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
-      .sort((a, b) => String(a).localeCompare(String(b), 'es', { numeric: true }));
+  // Los chips son la interfaz visible de #f-categoria, que permanece oculto
+  // y sigue siendo el único valor que lee aplicar().
+  function construirChips(valores) {
+    const cont = el('chips');
+    if (!cont) return;
+
+    cont.innerHTML = ['todas', ...valores].map(v => `
+      <button type="button" class="chip${v === 'todas' ? ' chip--activo' : ''}"
+              data-valor="${esc(v)}" aria-pressed="${v === 'todas'}">
+        ${v === 'todas' ? 'Todo' : esc(v)}
+      </button>`).join('');
+
+    cont.addEventListener('click', e => {
+      const boton = e.target.closest('.chip');
+      if (!boton) return;
+      el('f-categoria').value = boton.dataset.valor;
+      sincronizarChips(boton.dataset.valor);
+      aplicar();
+    });
+  }
+
+  function sincronizarChips(valor) {
+    document.querySelectorAll('#chips .chip').forEach(c => {
+      const activo = c.dataset.valor === valor;
+      c.classList.toggle('chip--activo', activo);
+      c.setAttribute('aria-pressed', activo);
+    });
   }
 
   function tarjeta(p) {
@@ -105,7 +129,9 @@
       return;
     }
 
-    rellenarSelect(el('f-categoria'), unicos('categoria'), 'Todas las categorías');
+    const categorias = unicos('categoria');
+    rellenarSelect(el('f-categoria'), categorias, 'Todas las categorías');
+    construirChips(categorias);
     rellenarSelect(el('f-marca'), unicos('marca'), 'Todas las marcas');
     rellenarSelect(el('f-talla'), unicos('talla'), 'Todas las tallas');
 
@@ -121,10 +147,16 @@
       el('f-talla').value = 'todas';
       el('f-estado').value = 'todas';
       el('f-orden').value = 'recientes';
+      sincronizarChips('todas');
       aplicar();
     });
 
     aplicar();
+  }
+
+  function unicos(campo) {
+    return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
+      .sort((a, b) => String(a).localeCompare(String(b), 'es', { numeric: true }));
   }
 
   iniciar();
