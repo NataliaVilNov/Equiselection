@@ -282,40 +282,63 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 /* ================= MÓVIL ================= */
 @media (max-width:640px){
-  .contenedor{padding:0 28px}
+  .contenedor{padding:0 22px}
 
-  /* Cabecera: deja de ser fija y se reparte en dos líneas */
+  /* Cabecera: dos líneas, sin la píldora de Instagram (ya está en el pie) */
   .cabecera{position:static}
-  .cabecera__fila{flex-wrap:wrap;justify-content:center;gap:6px;padding-top:18px;padding-bottom:4px}
-  .logo img{height:46px}
-  .nav{width:100%;justify-content:center;gap:18px;font-size:.7rem;letter-spacing:.08em;border-top:1px solid var(--linea);flex-wrap:wrap}
-  .nav__destacado{padding:0 12px;min-height:36px}
+  .cabecera__fila{flex-wrap:wrap;justify-content:center;gap:2px;padding-top:16px;padding-bottom:2px}
+  .logo img{height:44px}
+  .nav{width:100%;justify-content:center;gap:22px;font-size:.74rem;letter-spacing:.08em;border-top:1px solid var(--linea)}
+  .nav__destacado{display:none}
 
-  /* Hero */
-  .hero{padding:38px 0 40px}
-  .hero__marca{width:112px;margin-bottom:18px}
-  .hero__titulo{font-size:2.1rem;line-height:1.16;margin-bottom:18px}
-  .hero__texto{font-size:1rem;margin-bottom:26px}
-  .hero__acciones .boton{flex:1 1 100%}
-  .hero__enlace{
-  display:inline-flex;align-items:center;min-height:48px;
-  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  color:var(--texto-suave);box-shadow:inset 0 -2px 0 var(--azul);
-}
-.hero__enlace:hover{color:var(--espresso);box-shadow:inset 0 -2px 0 var(--espresso)}
+  /* Hero: sin isotipo. El logotipo ya está dos veces en la página */
+  .hero{padding:34px 0 36px}
+  .hero__marca{display:none}
+  .hero__kicker{margin-bottom:12px;letter-spacing:.2em}
+  .hero__titulo{font-size:2.05rem;line-height:1.16;margin-bottom:16px}
+  .hero__texto{font-size:1rem;margin-bottom:22px}
+  .hero__acciones{flex-direction:column;align-items:center;gap:6px}
+  .hero__acciones .boton{width:100%}
 
   /* Secciones */
-  .seccion{padding:38px 0 54px;scroll-margin-top:0}
-  .seccion__encabezado{flex-direction:column;align-items:flex-start;gap:4px;margin-bottom:18px}
+  .seccion{padding:32px 0 52px;scroll-margin-top:0}
+  .seccion__encabezado{flex-direction:column;align-items:flex-start;gap:2px;margin-bottom:16px}
   .seccion__contador{margin-bottom:0}
 
-  /* Filtros */
-  .filtros{gap:12px;margin-bottom:26px}
-  .chips{gap:6px}
-  .chip{flex:1 1 auto;padding:0 12px;font-size:.68rem;letter-spacing:.08em}
-  .filtros__fila{display:grid;grid-template-columns:1fr 1fr;gap:9px;padding:12px}
-  .filtros input,.filtros select{width:100%;padding:12px;font-size:.88rem}
-  .filtros__buscar{grid-column:1 / -1}
+  /* Filtros: solo búsqueda visible; el resto, plegado tras "Filtrar" */
+  .filtros{gap:10px;margin-bottom:22px}
+
+  /* Tira de chips con desplazamiento, sangrada hasta el borde de pantalla */
+  .chips{
+    flex-wrap:nowrap;overflow-x:auto;gap:7px;
+    margin:0 -22px;padding:0 22px 2px;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .chips::-webkit-scrollbar{display:none}
+  .chip{flex:0 0 auto;scroll-snap-align:start;padding:0 15px;font-size:.72rem}
+
+  .filtros__barra{display:block;padding:10px}
+  .filtros__fila{display:flex;gap:8px;align-items:stretch}
+  .filtros__buscar{flex:1 1 auto;min-width:0;font-size:.88rem}
+  .filtros__toggle{
+    display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;
+    min-height:44px;padding:0 16px;cursor:pointer;
+    font-family:var(--cuerpo);font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;
+    color:var(--blanco);background:var(--espresso);
+    border:1.5px solid var(--espresso);border-radius:var(--radio);
+  }
+  .filtros__activos{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:19px;height:19px;padding:0 5px;border-radius:999px;
+    background:var(--azul);color:var(--espresso-osc);
+    font-size:.68rem;letter-spacing:0;
+  }
+  .filtros__avanzados{display:none}
+  .filtros--abierto .filtros__avanzados{
+    display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;
+  }
+  .filtros select{width:100%;padding:12px;font-size:.88rem}
   .filtros__reset{grid-column:1 / -1;margin-left:0;justify-self:start}
 
   /* Catálogo: fila horizontal, cuatro artículos por pantalla */
@@ -346,51 +369,45 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
     font-size:.7rem;letter-spacing:.08em;
   }
 
-  /* Proceso y venta */
-  .proceso{padding:48px 0}
-  .proceso__lista{gap:16px;margin-top:26px}
-  .proceso__lista li{padding:20px}
-  .vende{padding:52px 0}
-  .vende__emblema img{width:min(55%,180px)}
+  /* Proceso: lista limpia, sin la barra de marca repetida */
+  .proceso{padding:44px 0}
+  .proceso__lista{gap:14px;margin-top:22px}
+  .proceso__lista li{padding:18px 20px}
+  .proceso__num{display:inline;margin-right:8px;font-size:1.15rem}
+  .proceso__lista h3{display:inline}
+
+  /* Vende: sin emblema, el logotipo ya sale en cabecera y pie */
+  .vende{padding:46px 0}
+  .vende__emblema{display:none}
+  .vende__fila{gap:0}
+  .vende .boton{width:100%}
 
   /* Ficha de producto */
-  .ficha{padding:28px 0 56px}
-  .ficha__grid{gap:30px}
+  .ficha{padding:24px 0 52px}
+  .ficha__grid{gap:28px}
   .ficha__titulo{font-size:2rem}
   .ficha__modelo{font-size:1.1rem;margin-bottom:18px}
   .ficha__precio{font-size:1.5rem}
   .galeria__miniaturas button{width:64px;height:64px}
-  .tabla-specs th{font-size:.72rem;width:46%}
+  .tabla-specs th{font-size:.74rem;width:46%}
   .ficha__acciones{flex-direction:column;gap:10px}
   .ficha__acciones .boton{width:100%;padding:16px 20px}
 
   /* Pie */
-  .pie__fila{grid-template-columns:1fr;gap:26px;padding-top:38px;padding-bottom:30px}
-  .pie__logo{height:56px}
+  .pie__fila{grid-template-columns:1fr;gap:24px;padding-top:34px;padding-bottom:28px}
+  .pie__logo{height:52px}
 }
 
 
 /* ================= MÓVILES ESTRECHOS ================= */
 @media (max-width:380px){
-  .contenedor{padding:0 22px}
+  .contenedor{padding:0 18px}
+  .chips{margin:0 -18px;padding:0 18px 2px}
   .hero__titulo{font-size:1.9rem}
-  .nav{gap:14px;font-size:.68rem}
-  .filtros__fila{grid-template-columns:1fr}
-  .tarjeta{grid-template-columns:100px 1fr;gap:15px}
+  .nav{gap:16px;font-size:.72rem}
+  .filtros--abierto .filtros__avanzados{grid-template-columns:1fr}
+  .tarjeta{grid-template-columns:100px 1fr;gap:14px}
   .tarjeta__titulo{font-size:1.18rem}
-}
-
-
-/* ================= MOVIMIENTO REDUCIDO ================= */
-@media (prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}
-  *,*::before,*::after{
-    animation-duration:.01ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.01ms !important;
-  }
-  .tarjeta:hover{transform:none}
-  .tarjeta:hover .tarjeta__marco img{transform:none}
 }
 
 
