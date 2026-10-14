@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>EquiSelection · Monturas de salto de segunda mano seleccionadas</title>
-<meta name="description" content="Selección experta de monturas de salto de segunda mano y material ecuestre revisado. Cada pieza, verificada antes de salir a la venta.">
+<meta name="description" content="Monturas de salto de segunda mano de marcas premium, revisadas una a una y fotografiadas al detalle. Selección experta, confianza real.">
 <meta property="og:title" content="EquiSelection · Pre-owned jumping saddles">
 <meta property="og:description" content="Selección experta. Confianza real.">
 <meta property="og:image" content="assets/img/logo.png">
@@ -12,20 +12,21 @@
 <link rel="icon" href="assets/img/isotipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a class="logo" href="index.html">
+    <a class="logo" href="index.html" aria-label="EquiSelection, inicio">
       <img src="assets/img/logo.png" alt="EquiSelection">
     </a>
     <nav class="nav">
       <a href="#catalogo">Catálogo</a>
-      <a href="#proceso">Nuestro proceso</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#proceso">Cómo funciona</a>
+      <a href="#vende">Vende tu montura</a>
+      <a class="nav__destacado" href="https://instagram.com/equiselection" target="_blank" rel="noopener">@equiselection</a>
     </nav>
   </div>
   <div class="marca-barra" aria-hidden="true">
@@ -35,33 +36,38 @@
 
 <section class="hero">
   <div class="contenedor">
+    <img class="hero__marca" src="assets/img/isotipo.png" alt="" width="150" height="150">
     <p class="hero__kicker">Selección experta</p>
-    <h1 class="hero__titulo">No todas las monturas<br><em>merecen ser seleccionadas</em></h1>
+    <h1 class="hero__titulo">Monturas de salto con historia,<br><em>listas para volar</em></h1>
     <p class="hero__texto">
-      Monturas de salto de segunda mano revisadas una a una: estado del cuero,
-      integridad del arzón, equilibrio y relleno. Solo publicamos lo que
+      Seleccionamos monturas de salto de segunda mano de las mejores marcas, las
+      revisamos a fondo y las fotografiamos al detalle. Solo publicamos lo que
       montaríamos nosotros.
     </p>
-    <a class="boton boton--oscuro" href="#catalogo">Ver disponibles</a>
+    <div class="hero__acciones">
+      <a class="boton boton--oscuro" href="#catalogo">Ver catálogo</a>
+      <a class="boton boton--azul" href="#vende">Vende tu montura</a>
+    </div>
   </div>
 </section>
 
 <main id="catalogo" class="contenedor seccion">
   <div class="seccion__encabezado">
-    <h2 class="seccion__titulo">Catálogo</h2>
+    <div>
+      <p class="antetitulo">Catálogo actual</p>
+      <h2 class="seccion__titulo">Disponible ahora</h2>
+    </div>
     <p class="seccion__contador" id="contador"></p>
   </div>
 
-    <form class="filtros" id="filtros" autocomplete="off">
-    <div class="filtros__fila">
-      <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar marca, modelo o talla…" aria-label="Buscar">
-      <button type="button" class="filtros__toggle" id="f-toggle" aria-expanded="false" aria-controls="f-avanzados">
-        Filtrar<span class="filtros__activos" id="f-activos" hidden></span>
-      </button>
-    </div>
+  <form class="filtros" id="filtros" autocomplete="off">
+    <!-- Los chips gobiernan este select, que queda oculto pero sigue siendo
+         la única fuente de verdad que lee catalogo.js -->
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+    <select id="f-categoria" hidden aria-hidden="true" tabindex="-1"></select>
 
-    <div class="filtros__avanzados" id="f-avanzados">
-      <select id="f-categoria" aria-label="Categoría"></select>
+    <div class="filtros__fila">
+      <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar marca, modelo o talla…" aria-label="Buscar en el catálogo">
       <select id="f-marca" aria-label="Marca"></select>
       <select id="f-talla" aria-label="Talla"></select>
       <select id="f-estado" aria-label="Disponibilidad">
@@ -83,29 +89,83 @@
   <p class="vacio" id="vacio" hidden>No hay artículos que coincidan con la búsqueda.</p>
 </main>
 
+<div class="marca-barra" aria-hidden="true">
+  <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+</div>
+
 <section id="proceso" class="proceso">
   <div class="contenedor">
-    <h2 class="seccion__titulo seccion__titulo--claro">Revisamos. Cuidamos. Preparamos.</h2>
+    <p class="antetitulo">El proceso</p>
+    <h2 class="seccion__titulo">Revisamos. Cuidamos. Preparamos.</h2>
     <ol class="proceso__lista">
-      <li><span>01</span><h3>Selección</h3><p>Descartamos todo lo que no cumple nuestros criterios de estado y procedencia.</p></li>
-      <li><span>02</span><h3>Revisión técnica</h3><p>Arzón, costuras, equilibrio, relleno y herrajes, pieza a pieza.</p></li>
-      <li><span>03</span><h3>Preparación</h3><p>Limpieza, nutrición del cuero y reportaje fotográfico honesto.</p></li>
-      <li><span>04</span><h3>Entrega</h3><p>Asesoramiento previo, embalaje cuidado y envío asegurado.</p></li>
+      <li>
+        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="proceso__num">01</span>
+        <h3>Selección</h3>
+        <p>Descartamos todo lo que no cumple nuestros criterios de estado y procedencia. Solo entran las buenas.</p>
+      </li>
+      <li>
+        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="proceso__num">02</span>
+        <h3>Revisión técnica</h3>
+        <p>Arzón, costuras, equilibrio, relleno y herrajes, pieza a pieza.</p>
+      </li>
+      <li>
+        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="proceso__num">03</span>
+        <h3>Preparación</h3>
+        <p>Limpieza, nutrición del cuero y reportaje fotográfico honesto, con las señales de uso a la vista.</p>
+      </li>
+      <li>
+        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <span class="proceso__num">04</span>
+        <h3>Entrega</h3>
+        <p>Asesoramiento previo, embalaje cuidado y envío asegurado a toda España.</p>
+      </li>
     </ol>
+  </div>
+</section>
+
+<section id="vende" class="vende">
+  <div class="contenedor vende__fila">
+    <div>
+      <p class="antetitulo antetitulo--azul">¿Tienes una montura parada?</p>
+      <h2 class="seccion__titulo seccion__titulo--claro">Vende tu montura sin complicarte</h2>
+      <p class="vende__texto">
+        Compramos monturas de salto en buen estado y también gestionamos la venta por ti.
+        Tú nos la haces llegar, nosotros la valoramos, la fotografiamos y le buscamos un
+        nuevo jinete.
+      </p>
+      <ul class="vende__lista">
+        <li>Valoración honesta y sin compromiso</li>
+        <li>Pago directo o venta en depósito, tú eliges</li>
+        <li>Nos ocupamos de fotos, anuncios y envío</li>
+      </ul>
+      <a class="boton boton--azul" href="https://wa.me/34600000000" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <div class="vende__emblema">
+      <img src="assets/img/logo.png" alt="">
+    </div>
   </div>
 </section>
 
 <footer id="contacto" class="pie">
   <div class="contenedor pie__fila">
-    <div>
+    <div class="pie__marca">
       <img class="pie__logo" src="assets/img/logo.png" alt="EquiSelection">
       <p class="pie__lema">Selección experta. Confianza real.</p>
     </div>
-    <div class="pie__contacto">
+    <div class="pie__bloque">
+      <h3>Navegación</h3>
+      <p><a href="#catalogo">Catálogo</a></p>
+      <p><a href="#proceso">Cómo funciona</a></p>
+      <p><a href="#vende">Vende tu montura</a></p>
+    </div>
+    <div class="pie__bloque">
       <h3>Contacto</h3>
       <p><a href="mailto:hola@equiselection.viles.es">hola@equiselection.viles.es</a></p>
       <p><a href="https://wa.me/34600000000">WhatsApp +34 600 00 00 00</a></p>
-      <p><a href="https://instagram.com/equiselection" rel="noopener">Instagram</a></p>
+      <p><a href="https://instagram.com/equiselection" rel="noopener">Instagram @equiselection</a></p>
     </div>
   </div>
   <div class="marca-barra" aria-hidden="true">
