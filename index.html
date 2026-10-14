@@ -41,12 +41,11 @@
     <h1 class="hero__titulo">Monturas de salto con historia,<br><em>listas para volar</em></h1>
     <p class="hero__texto">
       Seleccionamos monturas de salto de segunda mano de las mejores marcas, las
-      revisamos a fondo y las fotografiamos al detalle. Solo publicamos lo que
-      montaríamos nosotros.
+      revisamos a fondo y las fotografiamos al detalle.
     </p>
     <div class="hero__acciones">
       <a class="boton boton--oscuro" href="#catalogo">Ver catálogo</a>
-      <a class="boton boton--azul" href="#vende">Vende tu montura</a>
+      <a class="hero__enlace" href="#vende">¿Vendes la tuya?</a>
     </div>
   </div>
 </section>
@@ -60,31 +59,39 @@
     <p class="seccion__contador" id="contador"></p>
   </div>
 
-  <form class="filtros" id="filtros" autocomplete="off">
-    <!-- Los chips gobiernan este select, que queda oculto pero sigue siendo
+   <form class="filtros" id="filtros" autocomplete="off">
+    <!-- Los chips gobiernan #f-categoria, que queda oculto pero sigue siendo
          la única fuente de verdad que lee catalogo.js -->
     <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
     <select id="f-categoria" hidden aria-hidden="true" tabindex="-1"></select>
 
-    <div class="filtros__fila">
-      <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar marca, modelo o talla…" aria-label="Buscar en el catálogo">
-      <select id="f-marca" aria-label="Marca"></select>
-      <select id="f-talla" aria-label="Talla"></select>
-      <select id="f-estado" aria-label="Disponibilidad">
-        <option value="todas">Todas</option>
-        <option value="disponible">Disponibles</option>
-        <option value="reservada">Reservadas</option>
-        <option value="vendida">Vendidas</option>
-      </select>
-      <select id="f-orden" aria-label="Ordenar">
-        <option value="recientes">Más recientes</option>
-        <option value="precio-asc">Precio: menor a mayor</option>
-        <option value="precio-desc">Precio: mayor a menor</option>
-      </select>
-      <button type="button" class="filtros__reset" id="f-reset">Limpiar</button>
+    <div class="filtros__barra">
+      <div class="filtros__fila">
+        <input type="search" id="f-busqueda" class="filtros__buscar" placeholder="Buscar marca, modelo o talla…" aria-label="Buscar en el catálogo">
+        <button type="button" class="filtros__toggle" id="f-toggle" aria-expanded="false" aria-controls="f-avanzados">
+          Filtrar<span class="filtros__activos" id="f-activos" hidden></span>
+        </button>
+      </div>
+
+      <div class="filtros__avanzados" id="f-avanzados">
+        <select id="f-marca" aria-label="Marca"></select>
+        <select id="f-talla" aria-label="Talla"></select>
+        <select id="f-estado" aria-label="Disponibilidad">
+          <option value="todas">Todas</option>
+          <option value="disponible">Disponibles</option>
+          <option value="reservada">Reservadas</option>
+          <option value="vendida">Vendidas</option>
+        </select>
+        <select id="f-orden" aria-label="Ordenar">
+          <option value="recientes">Más recientes</option>
+          <option value="precio-asc">Precio: menor a mayor</option>
+          <option value="precio-desc">Precio: mayor a menor</option>
+        </select>
+        <button type="button" class="filtros__reset" id="f-reset">Limpiar</button>
+      </div>
     </div>
   </form>
-
+  
   <div class="rejilla" id="rejilla"></div>
   <p class="vacio" id="vacio" hidden>No hay artículos que coincidan con la búsqueda.</p>
 </main>
