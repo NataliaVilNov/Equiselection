@@ -15,8 +15,16 @@
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
+  const BARRA = '<div class="marca-barra tarjeta__barra" aria-hidden="true">' +
+    '<span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>';
+
   const rejilla = el('rejilla');
   let PRODUCTOS = [];
+
+  function unicos(campo) {
+    return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
+      .sort((a, b) => String(a).localeCompare(String(b), 'es', { numeric: true }));
+  }
 
   function rellenarSelect(select, valores, etiquetaTodas) {
     select.innerHTML = `<option value="todas">${esc(etiquetaTodas)}</option>` +
@@ -52,11 +60,21 @@
     });
   }
 
+  // El botón "Filtrar" solo existe en móvil; en escritorio los selectores
+  // están siempre a la vista y este contador queda oculto por CSS.
+  function sincronizarToggle() {
+    const n = ['f-marca', 'f-talla', 'f-estado'].filter(id => el(id).value !== 'todas').length
+            + (el('f-orden').value !== 'recientes' ? 1 : 0);
+    const marca = el('f-activos');
+    marca.hidden = n === 0;
+    marca.textContent = n;
+  }
+
   function tarjeta(p) {
     const vendida = p.estado === 'vendida';
     const foto = ruta(p.fotos?.[0]);
 
-    let etiqueta = '';
+    let etiqueta = `<span class="etiqueta">${esc(p.categoria)}</span>`;
     if (vendida) etiqueta = '<span class="etiqueta etiqueta--vendida">Vendida</span>';
     else if (p.estado === 'reservada') etiqueta = '<span class="etiqueta etiqueta--reservada">Reservada</span>';
     else if (p.novedad) etiqueta = '<span class="etiqueta etiqueta--nueva">Nueva entrada</span>';
@@ -65,19 +83,22 @@
       ? `<img src="${esc(foto)}" alt="${esc(p.marca)} ${esc(p.modelo)}" loading="lazy">`
       : `<div class="sin-foto"><img src="assets/img/isotipo.png" alt=""></div>`;
 
+    const meta = [p.talla, p.titular].filter(Boolean).map(esc).join(' · ');
+
     return `
       <a class="tarjeta ${vendida ? 'tarjeta--vendida' : ''}" href="montura.html?id=${encodeURIComponent(p.id)}">
+        ${BARRA}
         <div class="tarjeta__marco">
           ${etiqueta}
           ${imagen}
         </div>
         <div class="tarjeta__cuerpo">
-          <p class="tarjeta__categoria">${esc(p.categoria)}</p>
-          <h3 class="tarjeta__titulo">${esc(p.marca)}</h3>
-          <p class="tarjeta__modelo">${esc(p.modelo)}</p>
+          <p class="tarjeta__marca">${esc(p.marca)}</p>
+          <h3 class="tarjeta__titulo">${esc(p.modelo)}</h3>
+          ${meta ? `<p class="tarjeta__meta">${meta}</p>` : ''}
           <div class="tarjeta__pie">
             <span class="tarjeta__precio">${vendida ? '—' : EUR.format(p.precio || 0)}</span>
-            <span class="tarjeta__talla">${esc(p.talla)}</span>
+            <span class="tarjeta__ficha">Ver ficha</span>
           </div>
         </div>
       </a>`;
@@ -113,6 +134,7 @@
     el('vacio').hidden = lista.length > 0;
     el('contador').textContent =
       `${lista.length} ${lista.length === 1 ? 'artículo' : 'artículos'}`;
+    sincronizarToggle();
   }
 
   async function iniciar() {
@@ -140,6 +162,11 @@
     form.addEventListener('input', aplicar);
     form.addEventListener('change', aplicar);
 
+    el('f-toggle').addEventListener('click', () => {
+      const abierto = form.classList.toggle('filtros--abierto');
+      el('f-toggle').setAttribute('aria-expanded', abierto);
+    });
+
     el('f-reset').addEventListener('click', () => {
       el('f-busqueda').value = '';
       el('f-categoria').value = 'todas';
@@ -148,15 +175,12 @@
       el('f-estado').value = 'todas';
       el('f-orden').value = 'recientes';
       sincronizarChips('todas');
+      form.classList.remove('filtros--abierto');
+      el('f-toggle').setAttribute('aria-expanded', 'false');
       aplicar();
     });
 
     aplicar();
-  }
-
-  function unicos(campo) {
-    return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
-      .sort((a, b) => String(a).localeCompare(String(b), 'es', { numeric: true }));
   }
 
   iniciar();
