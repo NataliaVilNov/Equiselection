@@ -118,10 +118,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 
 /* ---- filtros ---- */
 .filtros{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{
   font-family:var(--cuerpo);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;
-  min-height:42px;padding:0 18px;cursor:pointer;
+  min-height:44px;padding:0 18px;cursor:pointer;white-space:nowrap;
   color:var(--texto);background:var(--blanco);
   border:1.5px solid var(--linea);border-radius:var(--radio);
   transition:all .15s ease;
@@ -129,10 +130,14 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .chip:hover{border-color:var(--gris)}
 .chip--activo{background:var(--espresso);border-color:var(--espresso);color:var(--blanco)}
 
-.filtros__fila{
+/* En escritorio, barra + fila + avanzados forman una sola tira de controles */
+.filtros__barra{
   display:flex;flex-wrap:wrap;gap:10px;align-items:center;
   padding:14px;background:var(--hueso);border-radius:var(--radio);
 }
+.filtros__fila,.filtros__avanzados{display:contents}
+.filtros__toggle{display:none}
+
 .filtros input,.filtros select{
   font-family:var(--cuerpo);font-size:.9rem;font-weight:400;color:var(--texto);
   min-height:44px;min-width:0;padding:11px 14px;
@@ -141,7 +146,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .filtros input:focus,.filtros select:focus{border-color:var(--gris)}
 .filtros__buscar{flex:1 1 240px}
 .filtros__reset{
-  display:inline-flex;align-items:center;min-height:44px;
+  display:inline-flex;align-items:center;justify-content:center;min-height:44px;
   margin-left:auto;padding:0 2px;background:none;border:none;cursor:pointer;
   font-family:var(--cuerpo);font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
   color:var(--texto-suave);box-shadow:inset 0 -2px 0 var(--azul);
@@ -292,6 +297,12 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .hero__titulo{font-size:2.1rem;line-height:1.16;margin-bottom:18px}
   .hero__texto{font-size:1rem;margin-bottom:26px}
   .hero__acciones .boton{flex:1 1 100%}
+  .hero__enlace{
+  display:inline-flex;align-items:center;min-height:48px;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--texto-suave);box-shadow:inset 0 -2px 0 var(--azul);
+}
+.hero__enlace:hover{color:var(--espresso);box-shadow:inset 0 -2px 0 var(--espresso)}
 
   /* Secciones */
   .seccion{padding:38px 0 54px;scroll-margin-top:0}
