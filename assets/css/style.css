@@ -64,7 +64,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 .marca-barra span:nth-child(5){flex:2;background:var(--azul)}
 .marca-barra span:nth-child(6){flex:2;background:var(--gris)}
 .marca-barra span:nth-child(7){flex:3;background:var(--azul)}
-.marca-barra--mini{width:66px;height:6px;border-radius:2px;overflow:hidden;margin-bottom:16px}
 
 /* ---- cabecera ---- */
 .cabecera{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.96);backdrop-filter:blur(8px)}
@@ -79,6 +78,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   transition:background .2s;
 }
 .nav__destacado:hover{background:var(--negro)}
+.menu-toggle{
+  display:none;
+  align-items:center;justify-content:center;
+  width:48px;height:48px;margin-right:-10px;
+  background:none;border:none;cursor:pointer;
+  font-size:1.6rem;line-height:1;color:var(--espresso);
+}
 
 /* ---- hero ---- */
 .hero{
@@ -94,7 +100,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 }
 .hero__titulo em{font-style:normal;color:var(--espresso-osc)}
 .hero__texto{max-width:54ch;margin:0 auto 32px;font-size:1.04rem;color:var(--texto-suave)}
-.hero__acciones{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.hero__acciones{display:flex;gap:18px;justify-content:center;align-items:center;flex-wrap:wrap}
+.hero__enlace{
+  display:inline-flex;align-items:center;min-height:48px;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--texto-suave);box-shadow:inset 0 -2px 0 var(--azul);
+}
+.hero__enlace:hover{color:var(--espresso);box-shadow:inset 0 -2px 0 var(--espresso)}
 
 .boton{
   display:inline-flex;align-items:center;justify-content:center;
@@ -161,28 +173,37 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   transition:transform .25s ease, box-shadow .25s ease;
 }
 .tarjeta:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(65,54,48,.12)}
+.tarjeta__barra{height:8px;flex:0 0 auto}
 .tarjeta__marco{
-  position:relative;background:var(--hueso);aspect-ratio:1/1;
-  overflow:hidden;padding:10px;
+  position:relative;background:var(--hueso);aspect-ratio:4/3;
+  overflow:hidden;padding:12px;
 }
 .tarjeta__marco img{width:100%;height:100%;object-fit:contain;transition:transform .5s ease}
 .tarjeta--vendida .tarjeta__marco img{filter:grayscale(1);opacity:.5}
 
 .etiqueta{
-  position:absolute;top:14px;left:14px;z-index:2;padding:6px 11px;border-radius:2px;
-  font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;line-height:1.2;
+  position:absolute;top:14px;left:14px;z-index:2;padding:7px 13px;border-radius:3px;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;line-height:1.2;
+  background:var(--azul);color:var(--espresso-osc);                 /* 11.9:1 */
 }
-.etiqueta--nueva{background:var(--azul);color:var(--espresso-osc)}      /* 11.9:1 */
-.etiqueta--vendida{background:var(--gris);color:var(--negro)}           /*  9.4:1 */
-.etiqueta--reservada{background:var(--negro);color:var(--blanco)}       /* 18.9:1 */
+.etiqueta--nueva{background:var(--azul);color:var(--espresso-osc)}
+.etiqueta--vendida{background:var(--gris);color:var(--negro)}       /*  9.4:1 */
+.etiqueta--reservada{background:var(--negro);color:var(--blanco)}   /* 18.9:1 */
 
-.tarjeta__cuerpo{padding:18px 20px 22px}
-.tarjeta__categoria{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--texto-suave);margin:0 0 7px}
-.tarjeta__titulo{font-family:var(--titulo);font-size:1.3rem;font-weight:600;margin:0 0 3px;line-height:1.2;color:var(--espresso)}
-.tarjeta__modelo{font-size:.95rem;color:var(--texto-suave);margin:0 0 12px}
-.tarjeta__pie{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;border-top:1px solid var(--linea)}
-.tarjeta__precio{font-family:var(--titulo);font-size:1.25rem;font-weight:600;color:var(--espresso)}
-.tarjeta__talla{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-suave)}
+.tarjeta__cuerpo{display:flex;flex-direction:column;flex:1;padding:18px 20px 20px}
+.tarjeta__marca{font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--texto-suave);margin:0 0 5px}
+.tarjeta__titulo{font-family:var(--titulo);font-size:1.45rem;font-weight:600;color:var(--espresso);margin:0 0 6px;line-height:1.15}
+.tarjeta__meta{font-size:.88rem;color:var(--texto-suave);margin:0 0 14px}
+.tarjeta__pie{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding-top:14px;border-top:1px solid var(--linea);
+}
+.tarjeta__precio{font-family:var(--titulo);font-size:1.35rem;font-weight:600;color:var(--espresso)}
+.tarjeta__ficha{
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
+  color:var(--espresso);box-shadow:inset 0 -2px 0 var(--azul);padding-bottom:3px;
+}
+.tarjeta:hover .tarjeta__ficha{box-shadow:inset 0 -2px 0 var(--espresso)}
 .vacio{text-align:center;color:var(--texto-suave);padding:60px 0}
 
 /* ---- marcador sin fotografía ---- */
@@ -284,14 +305,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
 @media (max-width:640px){
   .contenedor{padding:0 22px}
 
-  /* Cabecera: dos líneas, sin la píldora de Instagram (ya está en el pie) */
-  .cabecera{position:static}
-  .cabecera__fila{flex-wrap:wrap;justify-content:center;gap:2px;padding-top:16px;padding-bottom:2px}
+  /* Cabecera fija: te acompaña al bajar, en una sola línea */
+  .cabecera{position:sticky;top:0}
+  .cabecera__fila{flex-wrap:nowrap;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
   .logo img{height:44px}
-  .nav{width:100%;justify-content:center;gap:22px;font-size:.74rem;letter-spacing:.08em;border-top:1px solid var(--linea)}
-  .nav__destacado{display:none}
+  .menu-toggle{display:inline-flex}
 
-  /* Hero: sin isotipo. El logotipo ya está dos veces en la página */
+  .nav{
+    position:absolute;top:100%;left:0;right:0;z-index:40;
+    display:none;flex-direction:column;gap:0;
+    padding:4px 22px 14px;background:var(--blanco);
+    border-bottom:1px solid var(--linea);
+    box-shadow:0 14px 30px rgba(65,54,48,.1);
+    font-size:.8rem;letter-spacing:.1em;
+  }
+  .cabecera--abierta .nav{display:flex}
+  .nav a{min-height:52px;justify-content:flex-start;border-bottom:1px solid var(--linea)}
+  .nav a:hover{border-color:var(--linea)}
+  .nav__destacado{
+    margin-top:12px;justify-content:center;
+    border-radius:var(--radio);border-bottom:none;
+  }
+
+  /* Hero: sin isotipo, el logotipo ya está en cabecera y pie */
   .hero{padding:34px 0 36px}
   .hero__marca{display:none}
   .hero__kicker{margin-bottom:12px;letter-spacing:.2em}
@@ -300,20 +336,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .hero__acciones{flex-direction:column;align-items:center;gap:6px}
   .hero__acciones .boton{width:100%}
 
-  /* Secciones */
-  .seccion{padding:32px 0 52px;scroll-margin-top:0}
+  /* Secciones: el margen deja sitio a la cabecera fija */
+  .seccion{padding:32px 0 52px;scroll-margin-top:86px}
+  .proceso,.vende,.pie{scroll-margin-top:86px}
   .seccion__encabezado{flex-direction:column;align-items:flex-start;gap:2px;margin-bottom:16px}
   .seccion__contador{margin-bottom:0}
 
   /* Filtros: solo búsqueda visible; el resto, plegado tras "Filtrar" */
   .filtros{gap:10px;margin-bottom:22px}
-
-  /* Tira de chips con desplazamiento, sangrada hasta el borde de pantalla */
   .chips{
     flex-wrap:nowrap;overflow-x:auto;gap:7px;
     margin:0 -22px;padding:0 22px 2px;
-    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;
-    scrollbar-width:none;
+    scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;scrollbar-width:none;
   }
   .chips::-webkit-scrollbar{display:none}
   .chip{flex:0 0 auto;scroll-snap-align:start;padding:0 15px;font-size:.72rem}
@@ -331,43 +365,22 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .filtros__activos{
     display:inline-flex;align-items:center;justify-content:center;
     min-width:19px;height:19px;padding:0 5px;border-radius:999px;
-    background:var(--azul);color:var(--espresso-osc);
-    font-size:.68rem;letter-spacing:0;
+    background:var(--azul);color:var(--espresso-osc);font-size:.68rem;letter-spacing:0;
   }
   .filtros__avanzados{display:none}
-  .filtros--abierto .filtros__avanzados{
-    display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;
-  }
+  .filtros--abierto .filtros__avanzados{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .filtros select{width:100%;padding:12px;font-size:.88rem}
   .filtros__reset{grid-column:1 / -1;margin-left:0;justify-self:start}
 
-  /* Catálogo: fila horizontal, cuatro artículos por pantalla */
-  .rejilla{grid-template-columns:1fr;gap:0}
-  .tarjeta{
-    display:grid;grid-template-columns:118px 1fr;gap:18px;
-    align-items:center;padding:16px 0;
-    border:none;border-bottom:1px solid var(--linea);border-radius:0;
-  }
-  .tarjeta:first-child{border-top:1px solid var(--linea)}
+  /* Catálogo: tarjeta vertical a ancho completo */
+  .rejilla{grid-template-columns:1fr;gap:24px}
   .tarjeta:hover{transform:none;box-shadow:none}
-  .tarjeta:hover .tarjeta__marco img{transform:none}
-  .tarjeta:active{background:var(--hueso)}
-
-  .tarjeta__marco{border-radius:3px;padding:7px}
-  .tarjeta__categoria{display:none}            /* constante en 29 de 31: no informa */
-  .tarjeta__cuerpo{padding:0;min-width:0}
-  .tarjeta__titulo{font-size:1.25rem;margin-bottom:2px}
-  .tarjeta__modelo{font-size:.92rem;margin-bottom:9px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-  .tarjeta__pie{padding-top:9px;justify-content:flex-start;gap:12px}
-  .tarjeta__precio{font-size:1.1rem}
-  .tarjeta__talla{margin-left:auto}
-
-  /* Sello sobre la miniatura: franja inferior, legible a 11 px */
-  .etiqueta{
-    top:auto;bottom:0;left:0;right:0;
-    padding:4px 6px;border-radius:0;text-align:center;
-    font-size:.7rem;letter-spacing:.08em;
-  }
+  .tarjeta:active{box-shadow:0 6px 18px rgba(65,54,48,.12)}
+  .tarjeta__marco{padding:14px}
+  .tarjeta__cuerpo{padding:18px 20px 20px}
+  .tarjeta__titulo{font-size:1.75rem}
+  .tarjeta__meta{font-size:.92rem}
+  .tarjeta__precio{font-size:1.6rem}
 
   /* Proceso: lista limpia, sin la barra de marca repetida */
   .proceso{padding:44px 0}
@@ -376,7 +389,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .proceso__num{display:inline;margin-right:8px;font-size:1.15rem}
   .proceso__lista h3{display:inline}
 
-  /* Vende: sin emblema, el logotipo ya sale en cabecera y pie */
+  /* Vende: sin emblema */
   .vende{padding:46px 0}
   .vende__emblema{display:none}
   .vende__fila{gap:0}
@@ -404,10 +417,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{
   .contenedor{padding:0 18px}
   .chips{margin:0 -18px;padding:0 18px 2px}
   .hero__titulo{font-size:1.9rem}
-  .nav{gap:16px;font-size:.72rem}
+  .nav{padding-left:18px;padding-right:18px}
   .filtros--abierto .filtros__avanzados{grid-template-columns:1fr}
-  .tarjeta{grid-template-columns:100px 1fr;gap:14px}
-  .tarjeta__titulo{font-size:1.18rem}
+  .tarjeta__titulo{font-size:1.55rem}
+  .tarjeta__precio{font-size:1.45rem}
+}
+
+
+/* ================= MOVIMIENTO REDUCIDO ================= */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .tarjeta:hover{transform:none}
+  .tarjeta:hover .tarjeta__marco img{transform:none}
 }
 
 
