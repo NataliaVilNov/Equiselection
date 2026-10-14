@@ -7,7 +7,6 @@
 <link rel="icon" href="assets/img/isotipo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Sustituye la línea de Google Fonts por: -->
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -15,11 +14,17 @@
 
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
-    <a class="logo" href="index.html"><img src="assets/img/logo.png" alt="EquiSelection"></a>
-    <nav class="nav">
+    <a class="logo" href="index.html" aria-label="EquiSelection, inicio">
+      <img src="assets/img/logo.png" alt="EquiSelection">
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span aria-hidden="true">☰</span>
+    </button>
+    <nav class="nav" id="nav">
       <a href="index.html#catalogo">Catálogo</a>
       <a href="index.html#proceso">Cómo funciona</a>
       <a href="index.html#vende">Vende tu montura</a>
+      <a class="nav__destacado" href="https://instagram.com/equiselection" target="_blank" rel="noopener">@equiselection</a>
     </nav>
   </div>
   <div class="marca-barra" aria-hidden="true">
@@ -38,6 +43,7 @@
   <p class="pie__legal">© <span id="anio"></span> EquiSelection</p>
 </footer>
 
+<script src="assets/js/menu.js"></script>
 <script src="assets/js/ficha.js"></script>
 </body>
 </html>
