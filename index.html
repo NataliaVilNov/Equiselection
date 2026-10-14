@@ -22,7 +22,10 @@
     <a class="logo" href="index.html" aria-label="EquiSelection, inicio">
       <img src="assets/img/logo.png" alt="EquiSelection">
     </a>
-    <nav class="nav">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+      <span aria-hidden="true">☰</span>
+    </button>
+    <nav class="nav" id="nav">
       <a href="#catalogo">Catálogo</a>
       <a href="#proceso">Cómo funciona</a>
       <a href="#vende">Vende tu montura</a>
@@ -59,7 +62,7 @@
     <p class="seccion__contador" id="contador"></p>
   </div>
 
-   <form class="filtros" id="filtros" autocomplete="off">
+  <form class="filtros" id="filtros" autocomplete="off">
     <!-- Los chips gobiernan #f-categoria, que queda oculto pero sigue siendo
          la única fuente de verdad que lee catalogo.js -->
     <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
@@ -91,7 +94,7 @@
       </div>
     </div>
   </form>
-  
+
   <div class="rejilla" id="rejilla"></div>
   <p class="vacio" id="vacio" hidden>No hay artículos que coincidan con la búsqueda.</p>
 </main>
@@ -106,25 +109,21 @@
     <h2 class="seccion__titulo">Revisamos. Cuidamos. Preparamos.</h2>
     <ol class="proceso__lista">
       <li>
-        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <span class="proceso__num">01</span>
         <h3>Selección</h3>
         <p>Descartamos todo lo que no cumple nuestros criterios de estado y procedencia. Solo entran las buenas.</p>
       </li>
       <li>
-        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <span class="proceso__num">02</span>
         <h3>Revisión técnica</h3>
         <p>Arzón, costuras, equilibrio, relleno y herrajes, pieza a pieza.</p>
       </li>
       <li>
-        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <span class="proceso__num">03</span>
         <h3>Preparación</h3>
         <p>Limpieza, nutrición del cuero y reportaje fotográfico honesto, con las señales de uso a la vista.</p>
       </li>
       <li>
-        <div class="marca-barra marca-barra--mini" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
         <span class="proceso__num">04</span>
         <h3>Entrega</h3>
         <p>Asesoramiento previo, embalaje cuidado y envío asegurado a toda España.</p>
@@ -181,6 +180,7 @@
   <p class="pie__legal">© <span id="anio"></span> EquiSelection · Pre-owned jumping saddles</p>
 </footer>
 
+<script src="assets/js/menu.js"></script>
 <script src="assets/js/catalogo.js"></script>
 </body>
 </html>
