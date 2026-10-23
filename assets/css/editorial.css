@@ -1,0 +1,89 @@
+/* EquiSelection: composición editorial sobre el sistema visual original. */
+:root{--hueso:#f7f5f0;--linea:#e3ded5;--azul-suave:#edf3f5;--espresso:#3c322b;--radio:6px;--ancho:1240px}
+body{background:#fcfbf8}
+.cabecera{background:rgba(252,251,248,.97);border-bottom:1px solid var(--linea)}
+.cabecera__fila{min-height:94px}
+.cabecera>.marca-barra{height:3px}
+.nav{font-size:.68rem;letter-spacing:.09em;gap:28px}
+.nav__destacado{background:transparent;color:var(--espresso);border:1px solid var(--linea)!important;border-radius:30px;padding:0 20px}
+.nav__destacado:hover{background:var(--espresso);color:white}
+.hero{padding:52px 0 56px;text-align:left;background:var(--hueso)}
+.hero__grid{display:grid;grid-template-columns:1.12fr 1fr;gap:64px;align-items:center}
+.hero__kicker{display:flex;align-items:center;gap:12px;font-size:.67rem;letter-spacing:.2em}
+.hero__kicker::before{content:"";width:30px;height:2px;background:#81949e}
+.hero__titulo{font-size:clamp(2.6rem,4.5vw,4.2rem);font-weight:500;line-height:1.09;letter-spacing:-.045em;margin:22px 0;max-width:15ch}
+.hero__titulo br{display:none}
+.hero__titulo em{display:block;font-style:italic;color:#6a7c85;font-weight:500}
+.hero__texto{font-size:.92rem;line-height:1.9;max-width:44ch;margin:0 0 30px}
+.hero__acciones{justify-content:flex-start;gap:24px}
+.boton{letter-spacing:.08em;font-size:.7rem;min-height:52px;padding:15px 24px}
+.hero__acciones .boton{gap:30px}
+.hero__acciones .boton span{font-size:1.2rem}
+.hero__enlace{font-size:.67rem;letter-spacing:.06em;box-shadow:none;border-bottom:1px solid #b2aaa0;min-height:36px}
+.hero__nota{font-family:var(--titulo);font-style:italic;color:var(--texto-suave);font-size:.85rem;margin:34px 0 0}
+.hero__visual{margin:0;position:relative;background:white;padding:20px 30px 0;border:1px solid var(--linea);border-radius:160px 160px 6px 6px;overflow:hidden}
+.hero__visual>img{height:440px;width:100%;object-fit:contain}
+.hero__visual figcaption{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--linea);padding:17px 0;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--texto-suave)}
+.confianza{display:grid;grid-template-columns:repeat(4,1fr);padding-top:24px;padding-bottom:24px;border-bottom:1px solid var(--linea);text-align:center;gap:16px}
+.confianza span{font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--texto-suave)}
+.confianza span+span{border-left:1px solid var(--linea)}
+.seccion{padding:74px 28px 84px}
+.antetitulo{font-size:.64rem;letter-spacing:.2em}
+.seccion__titulo{font-weight:500;letter-spacing:-.025em;font-size:clamp(2rem,3vw,2.8rem)}
+.seccion__encabezado{margin-bottom:30px}
+.seccion__contador{font-size:.65rem}
+.chips{gap:10px}
+.chip{border-radius:30px;font-size:.65rem;letter-spacing:.06em;padding:0 22px}
+.filtros__barra{background:#f1eee8;padding:12px;border:1px solid var(--linea);border-radius:8px}
+.filtros input,.filtros select{font-size:.78rem;border-width:1px}
+.filtros__reset{font-size:.65rem}
+.rejilla{gap:28px}
+.tarjeta{border-radius:8px;border-color:var(--linea);box-shadow:0 3px 12px #3c322b04}
+.tarjeta__barra{display:none}
+.tarjeta__marco{aspect-ratio:1/1;background:white;padding:20px;border-bottom:1px solid var(--linea)}
+.tarjeta:hover .tarjeta__marco img{transform:scale(1.035)}
+.tarjeta__cuerpo{padding:24px;background:#fff}
+.tarjeta__titulo{font-size:1.55rem;font-weight:500}
+.tarjeta__marca{font-size:.62rem;color:#716458}
+.tarjeta__meta{font-size:.78rem}
+.tarjeta__precio{font-size:1.4rem;font-weight:500}
+.tarjeta__ficha{font-size:.6rem;letter-spacing:.08em}
+.etiqueta{border-radius:24px;font-size:.58rem;letter-spacing:.07em;padding:8px 12px}
+main+.marca-barra{height:3px}
+.proceso{padding:80px 0;background:#edf1f1}
+.proceso__lista{gap:0;margin-top:44px}
+.proceso__lista li{background:transparent;border:0;border-left:1px solid #cfd8d9;border-radius:0;padding:0 26px}
+.proceso__num{font-size:2rem;font-weight:500;color:#607782;margin-bottom:20px}
+.proceso__lista h3{font-size:1.25rem;margin-bottom:14px}
+.proceso__lista p{font-size:.82rem;line-height:1.85}
+.vende{padding:85px 0;background:#382f29}
+.vende__fila{gap:80px}
+.vende .seccion__titulo{max-width:19ch;margin-bottom:24px}
+.vende__texto,.vende__lista li{font-size:.88rem;line-height:1.85}
+.vende__emblema{border:1px solid #74675c;aspect-ratio:1;border-radius:50%;padding:35px;align-items:center}
+.vende__emblema img{width:100%;border-radius:50%}
+.pie{background:#29241f}
+.pie__bloque p{font-size:.76rem;overflow-wrap:anywhere}
+.pie__lema{font-size:.95rem}
+.pie .marca-barra{height:3px}
+.pie__legal{color:#b9b5b1}
+.ficha{padding:40px 28px 80px}
+.galeria__principal{background:white;border:1px solid var(--linea);padding:28px;border-radius:12px}
+.galeria__miniaturas button{border-radius:6px}
+.ficha__titulo{font-weight:500;letter-spacing:-.035em}
+.ficha__descripcion{font-size:.94rem;line-height:1.9}
+@media(min-width:861px){.ficha__grid>div:last-child{position:sticky;top:125px}}
+@media(max-width:1000px){.hero__grid{gap:30px}.nav{gap:15px;font-size:.61rem}.hero__visual>img{height:380px}.proceso__lista{grid-template-columns:repeat(2,1fr);gap:30px}}
+@media(max-width:640px){
+ .contenedor{padding-left:22px;padding-right:22px}.cabecera__fila{min-height:76px}.nav{padding:8px 22px 20px;font-size:.72rem}.logo img{height:42px}
+ .hero{padding:32px 0}.hero__grid{grid-template-columns:1fr;gap:30px}.hero__titulo{font-size:2.8rem;max-width:16ch;margin:20px 0}.hero__texto{font-size:.87rem;max-width:42ch}.hero__acciones{flex-direction:row;align-items:center;gap:18px}.hero__acciones .boton{width:auto;gap:18px}.hero__enlace{font-size:.62rem}.hero__nota{margin-top:22px;font-size:.8rem}
+ .hero__visual{border-radius:120px 120px 6px 6px;padding:16px 24px 0}.hero__visual>img{height:300px}.hero__visual figcaption{font-size:.52rem}
+ .confianza{grid-template-columns:1fr 1fr;row-gap:18px;padding-top:22px;padding-bottom:22px}.confianza span{font-size:.56rem}.confianza span:nth-child(3){border-left:0}
+ .seccion{padding:44px 22px 52px}.seccion__encabezado{gap:12px}.chips{margin:0 -22px;padding:0 22px 4px}.chip{font-size:.62rem;padding:0 18px}.filtros__toggle{font-size:.65rem;padding:0 12px}.filtros__barra{padding:9px}.filtros__buscar{font-size:.78rem}
+ .tarjeta__marco{padding:18px}.tarjeta__cuerpo{padding:22px}.rejilla{gap:24px}.proceso,.vende{padding:48px 0}.proceso__lista{grid-template-columns:1fr;gap:25px;margin-top:30px}.proceso__lista li{padding:0 0 0 20px}.proceso__num{display:block;margin:0 0 8px;font-size:1.5rem}.proceso__lista h3{display:block}.vende__emblema{display:none}.vende__fila{gap:0}.pie__legal{text-align:center;padding:22px}.ficha{padding:28px 22px 56px}
+}
+@media(prefers-reduced-motion:reduce){.tarjeta:hover .tarjeta__marco img{transform:none}}
+.logo{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo__nombre{font-family:var(--titulo);font-size:1.6rem;line-height:1.1;letter-spacing:-.05em}
+.logo__nombre small{display:block;font-family:var(--cuerpo);font-size:.42rem;font-weight:500;letter-spacing:.13em;margin-top:7px}
+@media(max-width:640px){.logo__nombre{font-size:1.35rem}.logo__nombre small{font-size:.36rem}.logo img{height:38px}}

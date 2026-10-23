@@ -15,13 +15,14 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/editorial.css">
 </head>
 <body>
 
 <header class="cabecera">
   <div class="contenedor cabecera__fila">
     <a class="logo" href="index.html" aria-label="EquiSelection, inicio">
-      <img src="assets/img/logo.png" alt="EquiSelection">
+      <img src="assets/img/logo.png" alt=""><span class="logo__nombre">EquiSelection<small>PRE-OWNED JUMPING SADDLES</small></span>
     </a>
     <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
       <span aria-hidden="true">☰</span>
@@ -39,8 +40,8 @@
 </header>
 
 <section class="hero">
-  <div class="contenedor">
-    <img class="hero__marca" src="assets/img/isotipo.png" alt="" width="150" height="150">
+  <div class="contenedor hero__grid">
+    <div class="hero__contenido">
     <p class="hero__kicker">Selección experta</p>
     <h1 class="hero__titulo">Monturas de salto con historia,<br><em>listas para volar</em></h1>
     <p class="hero__texto">
@@ -48,11 +49,20 @@
       revisamos a fondo y las fotografiamos al detalle.
     </p>
     <div class="hero__acciones">
-      <a class="boton boton--oscuro" href="#catalogo">Ver catálogo</a>
+      <a class="boton boton--oscuro" href="#catalogo">Explorar catálogo <span aria-hidden="true">↗</span></a>
       <a class="hero__enlace" href="#vende">¿Vendes la tuya?</a>
     </div>
+    <p class="hero__nota">Una nueva historia empieza con una buena elección.</p>
+    </div>
+    <figure class="hero__visual">
+      <img src="assets/img/productos/IMG_4914.jpeg" alt="Montura de salto GBS de cuero marrón" width="1179" height="1564" fetchpriority="high">
+      <figcaption><span>El arte de elegir bien</span><span>EquiSelection · Salto</span></figcaption>
+    </figure>
   </div>
 </section>
+<div class="confianza contenedor" aria-label="Nuestro compromiso">
+  <span>Selección experta</span><span>Revisión pieza a pieza</span><span>Fotografías al detalle</span><span>Envíos a toda España</span>
+</div>
 
 <main id="catalogo" class="contenedor seccion">
   <div class="seccion__encabezado">
@@ -60,7 +70,7 @@
       <p class="antetitulo">Catálogo actual</p>
       <h2 class="seccion__titulo">Disponible ahora</h2>
     </div>
-    <p class="seccion__contador" id="contador"></p>
+    <p class="seccion__contador" id="contador" aria-live="polite"></p>
   </div>
 
   <form class="filtros" id="filtros" autocomplete="off">
