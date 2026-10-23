@@ -106,3 +106,8 @@ body{background:#f5f8fb}
 .prueba p:last-child{margin:0;max-width:74ch;font-size:.88rem;line-height:1.85;color:var(--texto-suave)}
 @media(max-width:860px){.prueba{grid-template-columns:1fr;gap:22px;padding:24px}.prueba .boton{justify-self:start}}
 .prueba{scroll-margin-top:110px}
+/* Desactivar las formas irregulares de Fraunces en el título de prueba. */
+.prueba h3{font-variation-settings:"WONK" 0;font-kerning:normal;letter-spacing:normal;line-height:1.3}
+/* El blanco se vuelve negro y la mezcla screen lo integra en el fondo del pie. */
+.pie{isolation:isolate}
+.pie__logo{filter:grayscale(1) invert(1);mix-blend-mode:screen}
