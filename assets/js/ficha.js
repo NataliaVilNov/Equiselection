@@ -6,7 +6,7 @@
   // Deja whatsapp vacío mientras no tengas la línea: el botón no aparecerá.
   const CONTACTO = {
     whatsapp: '',
-    email: 'hola@equiselection.viles.es'
+    email: 'equiselection@viles.es'
   };
 
   const ruta = f => String(f || '').replace(/^\//, '');
