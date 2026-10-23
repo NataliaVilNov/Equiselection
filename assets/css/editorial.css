@@ -87,3 +87,22 @@ main+.marca-barra{height:3px}
 .logo__nombre{font-family:var(--titulo);font-size:1.6rem;line-height:1.1;letter-spacing:-.05em}
 .logo__nombre small{display:block;font-family:var(--cuerpo);font-size:.42rem;font-weight:500;letter-spacing:.13em;margin-top:7px}
 @media(max-width:640px){.logo__nombre{font-size:1.35rem}.logo__nombre small{font-size:.36rem}.logo img{height:38px}}
+
+/* Paleta azul aprobada */
+
+:root{--hueso:#e8f0f5;--linea:#d4e0e8;--texto:#293b47;--texto-suave:#526875;--espresso:#293f4d;--espresso-osc:#203440}
+body{background:#f5f8fb}
+.cabecera{background:rgba(245,248,251,.97)}
+.hero__titulo em{color:#52788c}
+.hero__kicker::before{background:#52788c}
+.filtros__barra{background:#e8eff5}
+.proceso{background:#e1ebf2}
+.vende{background:#293f4d}
+.pie{background:#1e303c}
+@media(max-width:640px){.nav{background:#f5f8fb}}
+
+.prueba{margin-top:44px;padding:30px;border:1px solid #c3d4df;border-radius:8px;background:#f5f8fb;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
+.prueba h3{font-family:var(--titulo);font-weight:500;font-size:1.7rem;line-height:1.2;margin:0 0 14px;color:var(--espresso)}
+.prueba p:last-child{margin:0;max-width:74ch;font-size:.88rem;line-height:1.85;color:var(--texto-suave)}
+@media(max-width:860px){.prueba{grid-template-columns:1fr;gap:22px;padding:24px}.prueba .boton{justify-self:start}}
+.prueba{scroll-margin-top:110px}
