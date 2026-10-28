@@ -773,5 +773,23 @@
         "valor": "M"
       }
     ]
+  },
+  {
+    "marca": "CWD",
+    "modelo": "Doble cuero",
+    "talla": "17,5”",
+    "id": "cwd-175-13-2",
+    "categoria": "Monturas",
+    "estado": "disponible",
+    "precio": 1300,
+    "novedad": true,
+    "destacado": false,
+    "fecha": "2026-10-28",
+    "titular": "¡Tu próxima CWD te espera!",
+    "descripcion": "Montura de salto de doble cuero, 17,5”, con asiento semiprofundo y faldón adelantado.",
+    "fotos": [
+      "/assets/img/productos/675aee1b-3515-472f-9191-891f812cdca8.jpeg",
+      "/assets/img/productos/e7a0083b-a33e-41e3-9fb6-3ef316c7d13d.jpeg"
+    ]
   }
 ]
