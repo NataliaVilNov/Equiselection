@@ -20,6 +20,8 @@
 
   const rejilla = el('rejilla');
   let PRODUCTOS = [];
+  let admin = false;
+  let previews = new Map();
 
   function unicos(campo) {
     return [...new Set(PRODUCTOS.map(p => p[campo]).filter(Boolean))]
@@ -43,13 +45,6 @@
         ${v === 'todas' ? 'Todo' : esc(v)}
       </button>`).join('');
 
-    cont.addEventListener('click', e => {
-      const boton = e.target.closest('.chip');
-      if (!boton) return;
-      el('f-categoria').value = boton.dataset.valor;
-      sincronizarChips(boton.dataset.valor);
-      aplicar();
-    });
   }
 
   function sincronizarChips(valor) {
@@ -72,7 +67,7 @@
 
   function tarjeta(p) {
     const vendida = p.estado === 'vendida';
-    const foto = ruta(p.fotos?.[0]);
+    const foto = previews.get(p.fotos?.[0]) || ruta(p.fotos?.[0]);
 
     let etiqueta = `<span class="etiqueta">${esc(p.categoria)}</span>`;
     if (vendida) etiqueta = '<span class="etiqueta etiqueta--vendida">Vendida</span>';
@@ -85,7 +80,7 @@
 
     const meta = [p.talla, p.titular].filter(Boolean).map(esc).join(' · ');
 
-    return `
+    const enlace = `
       <a class="tarjeta ${vendida ? 'tarjeta--vendida' : ''}" href="montura.html?id=${encodeURIComponent(p.id)}">
         ${BARRA}
         <div class="tarjeta__marco">
@@ -102,6 +97,14 @@
           </div>
         </div>
       </a>`;
+    if (!admin) return enlace;
+    return `<div class="admin-card">
+      ${enlace}
+      <details class="admin-menu">
+        <summary aria-label="Opciones de ${esc(p.marca)} ${esc(p.modelo)}">⋯</summary>
+        <button type="button" data-admin-edit="${esc(p.id)}">Editar</button>
+      </details>
+    </div>`;
   }
 
   function aplicar() {
@@ -137,6 +140,32 @@
     sincronizarToggle();
   }
 
+  function actualizarFiltros() {
+    const ids = ['f-categoria', 'f-marca', 'f-talla'];
+    const previous = ids.map(id => el(id).value);
+    const categorias = unicos('categoria');
+    rellenarSelect(el('f-categoria'), categorias, 'Todas las categorías');
+    construirChips(categorias);
+    rellenarSelect(el('f-marca'), unicos('marca'), 'Todas las marcas');
+    rellenarSelect(el('f-talla'), unicos('talla'), 'Todas las tallas');
+    ids.forEach((id, index) => {
+      const select = el(id);
+      if ([...select.options].some(option => option.value === previous[index])) {
+        select.value = previous[index];
+      }
+    });
+    sincronizarChips(el('f-categoria').value);
+  }
+
+  rejilla.addEventListener('catalogo:admin', event => {
+    const settings = event.detail;
+    admin = settings.enabled;
+    previews = settings.previews;
+    if (settings.products) PRODUCTOS = settings.products;
+    actualizarFiltros();
+    aplicar();
+  });
+
   async function iniciar() {
     el('anio').textContent = new Date().getFullYear();
 
@@ -144,19 +173,22 @@
       const res = await fetch('data/productos.json', { cache: 'no-store' });
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const datos = await res.json();
-      PRODUCTOS = Array.isArray(datos) ? datos : (datos.productos ?? []);
+      if (!admin) PRODUCTOS = Array.isArray(datos) ? datos : (datos.productos ?? []);
     } catch (e) {
       console.error('EquiSelection · error al cargar el catálogo:', e);
       rejilla.innerHTML = '<p class="vacio">No se ha podido cargar el catálogo.</p>';
       return;
     }
 
-    const categorias = unicos('categoria');
-    rellenarSelect(el('f-categoria'), categorias, 'Todas las categorías');
-    construirChips(categorias);
-    rellenarSelect(el('f-marca'), unicos('marca'), 'Todas las marcas');
-    rellenarSelect(el('f-talla'), unicos('talla'), 'Todas las tallas');
+    actualizarFiltros();
 
+    el('chips')?.addEventListener('click', e => {
+      const boton = e.target.closest('.chip');
+      if (!boton) return;
+      el('f-categoria').value = boton.dataset.valor;
+      sincronizarChips(boton.dataset.valor);
+      aplicar();
+    });
     const form = el('filtros');
     form.addEventListener('submit', e => e.preventDefault());  // Enter no recarga
     form.addEventListener('input', aplicar);
